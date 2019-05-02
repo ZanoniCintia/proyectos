@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1556766025 source:/home/cintia/zanoni/utn/main.c
+	<stdio.h>
+	<stdlib.h>
+
