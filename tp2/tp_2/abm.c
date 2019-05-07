@@ -69,11 +69,12 @@ int emp_mostrarArray(Empleado *arrayEmpleado, int len)
     {
         if(arrayEmpleado[i].isEmpty==0)
         {
-            printf("posicion %d : estado % d \ n ", i, arrayEmpleado[i].isEmpty);
-            printf("posicion %d : nombre : %s \n ",i,arrayEmpleado[i].name);
-            printf("posicion %d : apellido : %s \n",i,arrayEmpleado[i].lastName);
-            printf("posicion %d : salario : %f \n",i,arrayEmpleado[i].salary);
-            printf("posicion %d : sector : %d \n",i,arrayEmpleado[i].sector);
+            printf("Id: %d \n", arrayEmpleado[i].Id);
+            printf("nombre: %s \n",arrayEmpleado[i].name);
+            printf("apellido: %s \n",arrayEmpleado[i].lastName);
+            printf("salario: %.2f \n",arrayEmpleado[i].salary);
+            printf("sector: %d \n\n",arrayEmpleado[i].sector);
+
 
         }
     }
@@ -97,7 +98,7 @@ int emp_borrarEmpleado(Empleado *arrayEmpleado, int len,int id)
 
 }
 
-int ordenarMayoraMenor(Empleado *arrayEmpleado,int len)
+int emp_ordenarMayoraMenor(Empleado *arrayEmpleado,int len)
 {
     int i;
     int j;
@@ -123,14 +124,12 @@ int ordenarMayoraMenor(Empleado *arrayEmpleado,int len)
                 retorno =0;
             }
         }
-
-
     }
-
+    emp_mostrarArray(arrayEmpleado,len);
     return retorno;
 
 }
-int ordenarMenoraMayor(Empleado *arrayEmpleado,int len)
+int emp_ordenarMenoraMayor(Empleado *arrayEmpleado,int len)
 {
     int i;
     int j;
@@ -148,12 +147,15 @@ int ordenarMenoraMayor(Empleado *arrayEmpleado,int len)
                 arrayEmpleado[j]=aux;
                 retorno =0;
             }
-            else if(arrayEmpleado[i].sector<arrayEmpleado[j].sector)
+            else if(strcmp(arrayEmpleado[i].lastName,arrayEmpleado[j].lastName)==0)
             {
-                aux=arrayEmpleado[i];
-                arrayEmpleado[i]=arrayEmpleado[j];
-                arrayEmpleado[j]=aux;
-                retorno =0;
+                if(arrayEmpleado[i].sector<arrayEmpleado[j].sector)
+                {
+                    aux=arrayEmpleado[i];
+                    arrayEmpleado[i]=arrayEmpleado[j];
+                    arrayEmpleado[j]=aux;
+                    retorno =0;
+                }
             }
         }
 
@@ -164,8 +166,48 @@ int ordenarMenoraMayor(Empleado *arrayEmpleado,int len)
 
 }
 
+int emp_calcularPromedioSalario(Empleado *arrayEmpleado,int len)
+{
+    int i;
+    float acumulador=0;
+    int cantidad=0;
+    float promedio;
+    int retorno = -1;
+    for(i=0;i<len;i++)
+    {
+       if(arrayEmpleado[i].isEmpty==0)
+       {
+            acumulador+=arrayEmpleado[i].salary;
+            cantidad++;
+       }
+       retorno = 0;
+    }
+    promedio=acumulador/cantidad;
+    printf("el promedio es: %.2f\n",promedio);
+    return retorno;
+}
 
+int emp_modificarEmpleado(Empleado *arrayEmpleado,int len,int Id)
+{
+    int retorno=-1;
+    int id=-1;
+    id=emp_buscarPorId(arrayEmpleado,len,Id);
+    if(id!=-1)
+    {
+        if(!getName("ingrese nuevo nombre:\n","nombre invalido",2,51,3,arrayEmpleado[id].name)
+            && !getName("ingrese nuevo apellido:\n","apellido invalido",2,51,3,arrayEmpleado[id].lastName)
+            && !getFloat("ingrese nuevo salario:\n","salario invalido",1,50000,3,&arrayEmpleado[id].salary)
+            && !getInt("ingrese nuevo sector:\n","sector invalido",1,4,3,&arrayEmpleado[id].sector))
+        {
+                printf("datos modificados correctamente");
+        }else{
+                printf("no fue posible modificar los datos");
+        }
+        retorno = 0;
+    }
 
+    return retorno;
 
+}
 
 

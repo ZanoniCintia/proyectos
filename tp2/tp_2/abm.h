@@ -16,7 +16,9 @@ int emp_addEmpleado(Empleado *arrayEmpleado,int len , int *Id,char *nombre,char 
 int emp_buscarPorId(Empleado *arrayEmpleado, int len, int id);
 int emp_mostrarArray(Empleado *arrayEmpleado, int len);
 int emp_borrarEmpleado(Empleado *arraEmpleado, int len,int id);
-int ordenarMayoraMenor(Empleado *arrayEmpleado,int len);
-int ordenarMenoraMayor(Empleado *arrayEmpleado,int len);
+int emp_ordenarMayoraMenor(Empleado *arrayEmpleado,int len);
+int emp_ordenarMenoraMayor(Empleado *arrayEmpleado,int len);
+int emp_calcularPromedioSalario(Empleado *arrayEmpleado,int len);
+int emp_modificarEmpleado(Empleado *arrayEmpleado,int len,int Id);
 
 #endif // ABM_H_INCLUDED
