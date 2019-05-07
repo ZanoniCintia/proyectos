@@ -57,13 +57,10 @@ int main()
                 && !getInt("ingrese sector:\n 1.ventas\n 2.cajas \n 3.administracion \n 4.seguridad","error, ingrese un sector valido",1,4,3,&sector)
                 && emp_addEmpleado(lista,PERSONAL,&id,nombre,apellido,salario,sector))
             {
-
-                    printf("carga exitosa");
-
+                printf("carga exitosa");
             }else{
                     printf("error de carga");
             }
-
             break;
 
             case 2:
@@ -74,7 +71,6 @@ int main()
             case 3:
             getInt("ingrese id para modificar","error,reingrese id",0,1000,3,&id);
             emp_modificarEmpleado(lista,PERSONAL,id);
-
             break;
 
             case 4:
@@ -93,12 +89,8 @@ int main()
 
             case 5:
             break;
-
-
         }
 
    }while(opcion!=5);
-
-
-   return 0;
+    return 0;
 }
