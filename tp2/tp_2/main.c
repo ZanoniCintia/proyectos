@@ -7,8 +7,10 @@
 
 int main()
 {
+
     int opcion=0;
     int id=0;
+    int contadorAlta=1;
     char nombre[51];
     char apellido[51];
     int sector;
@@ -28,7 +30,7 @@ int main()
     lista[1].isEmpty=0;
     strcpy(lista[1].name,"Joe");
     strcpy(lista[1].lastName,"Morello");
-    lista[1].salary=2000.20;
+    lista[1].salary=5000.20;
     lista[1].sector=2;
     lista[1].Id=1;
 
@@ -46,51 +48,66 @@ int main()
         printf("3-Modificacion de datos\n");
         printf("4-visualizar informe de personal\n");
         printf("5-salir\n");
-        getInt("ingrese una opcion : \n","ingrese una opcion valida",1,5,3,&opcion);
+        getInt("ingrese una opcion: ","ingrese una opcion valida",1,5,3,&opcion);
 
         switch(opcion)
         {
             case 1:
-            if(!getName("ingrese un nombre : ","error, reingrese nombre",2,51,3,nombre)
+            if(!getName("ingrese un nombre: ","Error, reingrese nombre: ",2,51,3,nombre)
                 && !getName("ingrese apellido :","error, reingrese apellido",2,51,3,apellido)
                 && !getFloat("ingrese salario :","error, reingrese salario",1,50000,3,&salario)
                 && !getInt("ingrese sector:\n 1.ventas\n 2.cajas \n 3.administracion \n 4.seguridad","error, ingrese un sector valido",1,4,3,&sector)
                 && emp_addEmpleado(lista,PERSONAL,&id,nombre,apellido,salario,sector))
             {
                 printf("carga exitosa");
+                contadorAlta++;
             }else{
                     printf("error de carga");
             }
             break;
 
             case 2:
-            getInt("ingrese id para borrar","error,reingrese id",0,1000,3,&id);
-            emp_borrarEmpleado(lista,PERSONAL,id);
-            break;
-
-            case 3:
-            getInt("ingrese id para modificar","error,reingrese id",0,1000,3,&id);
-            emp_modificarEmpleado(lista,PERSONAL,id);
-            break;
-
-            case 4:
-            emp_mostrarArray(lista,PERSONAL);
-            getInt("ingrese :\n1- para ordenar por nombre/sector:\n2-para calcular promedio de salario:\n","opcion invalida",1,2,3,&opcion);
-            switch(opcion)
+            if(contadorAlta!=0)
             {
-                case 1:
-                emp_ordenarMayoraMenor(lista,PERSONAL);
-                break;
-                case 2:
-                emp_calcularPromedioSalario(lista,PERSONAL);
-                break;
+                if(!getInt("ingrese id para borrar","error,reingrese id",0,1000,3,&id)&&(!emp_borrarEmpleado(lista,PERSONAL,id)))
+                {   printf("Baja exitosa");
+                    contadorAlta--;
+                }
+
             }
             break;
 
+            case 3:
+            if(contadorAlta!=0)
+            {   if(!getInt("ingrese id para modificar","error,reingrese id",0,1000,3,&id)&&(
+                emp_modificarEmpleado(lista,PERSONAL,id)))
+                {
+                    printf("modificacion exitosa");
+                }
+            }
+            break;
+
+            case 4:
+            if(contadorAlta!=0)
+            {
+                emp_mostrarArray(lista,PERSONAL);
+                getInt("ingrese :\n1- para ordenar por nombre/sector:\n2-para calcular promedio de salario:\n","opcion invalida",1,2,3,&opcion);
+                switch(opcion)
+                {
+                    case 1:
+                    emp_ordenarMayoraMenor(lista,PERSONAL);
+                    break;
+                    case 2:
+                    emp_calcularPromedioSalario(lista,PERSONAL);
+                    break;
+                }
+                break;
+            }
             case 5:
             break;
         }
 
    }while(opcion!=5);
+
     return 0;
 }

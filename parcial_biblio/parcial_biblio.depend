@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1557424469 source:/home/cintia/zanoni/proyectos/parcial_biblio/main.c
+	<stdio.h>
+	<stdlib.h>
+

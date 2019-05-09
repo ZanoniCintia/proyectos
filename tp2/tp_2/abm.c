@@ -169,6 +169,7 @@ int emp_ordenarMenoraMayor(Empleado *arrayEmpleado,int len)
 int emp_calcularPromedioSalario(Empleado *arrayEmpleado,int len)
 {
     int i;
+    int acumuladorSalarioEncimaPromedio=0;
     float acumulador=0;
     int cantidad=0;
     float promedio;
@@ -184,6 +185,14 @@ int emp_calcularPromedioSalario(Empleado *arrayEmpleado,int len)
     }
     promedio=acumulador/cantidad;
     printf("el promedio es: %.2f\n",promedio);
+    for(i=0;i<len;i++)
+    {
+        if((arrayEmpleado[i].isEmpty==0)&&(arrayEmpleado[i].salary>promedio))
+        {
+            acumuladorSalarioEncimaPromedio++;
+        }
+    }
+    printf("la cantidad de empleado con salario mayor al promedio es : %d\n",acumuladorSalarioEncimaPromedio);
     return retorno;
 }
 

@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1557432084 source:/home/cintia/zanoni/proyectos/parcial_bibilioteca/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1557431949 source:/home/cintia/zanoni/proyectos/parcial_bibilioteca/parcial_bibilioteca.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1557432029 source:/home/cintia/zanoni/proyectos/parcial_bibilioteca/utn.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1556821719 /home/cintia/zanoni/proyectos/parcial_bibilioteca/utn.h
+
