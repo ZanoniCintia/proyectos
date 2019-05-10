@@ -44,3 +44,27 @@
 	"utn.h"
 	<string.h>
 
+1557438680 source:/home/alumno/zanoni/proyectos/tp2/tp_2/abm.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"abm.h"
+	"utn.h"
+
+1557438680 /home/alumno/zanoni/proyectos/tp2/tp_2/abm.h
+
+1557438680 /home/alumno/zanoni/proyectos/tp2/tp_2/utn.h
+
+1557438680 source:/home/alumno/zanoni/proyectos/tp2/tp_2/main.c
+	<stdio.h>
+	<stdlib.h>
+	"abm.h"
+	"utn.h"
+	<string.h>
+
+1557438680 source:/home/alumno/zanoni/proyectos/tp2/tp_2/utn.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
