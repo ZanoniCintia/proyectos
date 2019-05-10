@@ -1,5 +1,5 @@
 #include <string.h>
-#include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include "utn.h"
 #define TRUE 0
@@ -16,6 +16,7 @@ int getString ( char* msg,char* msgError,int minimo, int maximo, int reintentos,
         do
         {
             printf("%s",msg);
+            __fpurge(stdin);
             fgets(bufferStr,sizeof(bufferStr)-1,stdin);
 
             if(strlen(bufferStr)>=minimo && strlen(bufferStr) <=maximo)
