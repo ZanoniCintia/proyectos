@@ -73,7 +73,7 @@ int socios_buscarID(Socios array[], int size, int valorBuscado, int* posicion)  
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].idUnico==valorBuscado)                                                   //cambiar campo ID
+            else if(array[i].idSocio==valorBuscado)                                                   //cambiar campo ID
             {
                 retorno=0;
                 *posicion=i;
@@ -90,7 +90,7 @@ int socios_buscarID(Socios array[], int size, int valorBuscado, int* posicion)  
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
-int socios_buscarInt(Socios array[], int size, int valorBuscado, int* posicion)                    //cambiar socios
+/*int socios_buscarInt(Socios array[], int size, int valorBuscado, int* posicion)                    //cambiar socios
 {
     int retorno=-1;
     int i;
@@ -109,7 +109,7 @@ int socios_buscarInt(Socios array[], int size, int valorBuscado, int* posicion) 
         }
     }
     return retorno;
-}
+}*/
 
 //String
 /** \brief Busca un string en un array
@@ -119,7 +119,7 @@ int socios_buscarInt(Socios array[], int size, int valorBuscado, int* posicion) 
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
-int socios_buscarString(Socios array[], int size, char* valorBuscado, int* indice)                    //cambiar socios
+int socios_buscarNombreyApellido ( Socios array[], int size, char* valorBuscado,char* apellidoBuscado, int* indice)                    //cambiar socios
 {
     int retorno=-1;
     int i;
@@ -129,7 +129,7 @@ int socios_buscarString(Socios array[], int size, char* valorBuscado, int* indic
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(strcmp(array[i].varString,valorBuscado)==0)                                        //cambiar campo varString
+            else if(strcmp(array[i].nombre,valorBuscado)==0 && strcmp(array[i].apellido,apellidoBuscado)==0)                                        //cambiar campo varString
             {
                 *indice=i;
                 retorno=0;
@@ -162,14 +162,17 @@ int socios_alta(Socios array[], int size, int* contadorID)                      
         else
         {
             (*contadorID)++;
-            array[posicion].idUnico=*contadorID;                                                       //campo ID
+            array[posicion].idSocio=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
-            utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-            utn_getName("\ngetName: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
-            utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
-            printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                   posicion, array[posicion].idUnico,array[posicion].varInt,array[posicion].varFloat,array[posicion].varString,array[posicion].varLongString);
+            //utn_getUnsignedInt("\ningrese id ","\nError",1,sizeof(int),1,10,1,&array[posicion].idSocio);           //mensaje + cambiar campo varInt
+    //mensaje + cambiar campo varFloat
+            utn_getName("\ningrese nombre: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);
+            utn_getName("\ningrese apellido: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                    //mensaje + cambiar campo varString
+            utn_getTelefono("\ningrese telefono: ","\nError",8,16,100000000,9999999999999999,1,array[posicion].telefono);
+            utn_getEmail("\ningrese email","\nerror",1,31,1,array[posicion].mail);
+            utn_getChar("\ningrese sexo f/m","\n error",'A','Z',1,array[posicion].sexo);               //mensaje + cambiar campo varLongString
+            printf("\n Posicion: %d\n ID: %d\n nombre : %s\n apellido: %s\n mail: %s\n telefono: %s \n sexo: %c",
+                   posicion, array[posicion].idSocio,array[posicion].nombre,array[posicion].apellido,array[posicion].mail,array[posicion].telefono,array[posicion].sexo);
             retorno=0;
         }
     }
@@ -199,11 +202,12 @@ int socios_baja(Socios array[], int sizeArray)                                  
         else
         {
             array[posicion].isEmpty=1;
-            array[posicion].idUnico=0;                                                                   //cambiar campo id
-            array[posicion].varInt=0;                                                               //cambiar campo varInt
-            array[posicion].varFloat=0;                                                             //cambiar campo varFloat
-            strcpy(array[posicion].varString,"");                                                   //cambiar campo varString
-            strcpy(array[posicion].varLongString,"");                                               //cambiar campo varLongString
+            array[posicion].idSocio=0;                                                                   //cambiar campo id
+            strcpy(array[posicion].nombre,"");                                                 //cambiar campo var//cambiar campo varFloat
+            strcpy(array[posicion].apellido,"");                                                   //cambiar campo varString
+            strcpy(array[posicion].mail,"");
+            strcpy(array[posicion].telefono,"");
+            array[posicion].sexo;                                                //cambiar campo varLongString
             retorno=0;
         }
     }
@@ -226,14 +230,16 @@ int socios_bajaValorRepetidoInt(Socios array[], int sizeArray, int valorBuscado)
     {
         for(i=0;i<sizeArray;i++)
         {
-            if(array[i].idUnico==valorBuscado)                                                        //cambiar si no se busca por ID
+            if(array[i].idSocio==valorBuscado)                                                        //cambiar si no se busca por ID
             {
                 array[i].isEmpty=1;
-                array[i].idUnico=0;                                                                   //cambiar campo id
-                array[i].varInt=0;                                                               //cambiar campo varInt
-                array[i].varFloat=0;                                                             //cambiar campo varFloat
-                strcpy(array[i].varString,"");                                                   //cambiar campo varString
-                strcpy(array[i].varLongString,"");                                               //cambiar campo varLongString
+                array[i].idSocio=0;                                                                   //cambiar campo id
+                strcpy(array[i].nombre,"");                                                 //cambiar campo var//cambiar campo varFloat
+                strcpy(array[i].apellido,"");                                                   //cambiar campo varString
+                strcpy(array[i].mail,"");
+                strcpy(array[i].telefono,"");
+                array[i].sexo;                                                //cambiar campo varLongString
+                retorno=0;                                              //cambiar campo varLongString
             }
         }
         retorno=0;
@@ -268,22 +274,28 @@ int socios_modificar(Socios array[], int sizeArray)                             
         {
             do
             {       //copiar printf de alta
-                printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                       posicion, array[posicion].idUnico,array[posicion].varInt,array[posicion].varFloat,array[posicion].varString,array[posicion].varLongString);
+                printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s\n telefono: %s\n mail : %s, \n sexo : %c",
+                       posicion, array[posicion].idSocio,array[posicion].nombre,array[posicion].apellido,array[posicion].telefono,array[posicion].mail,array[posicion].sexo);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
+                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idSocio);           //mensaje + cambiar campo varInt
                         break;
                     case 'B':
-                        utn_getFloat("\n: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
+                        utn_getName("\ningrese nombre: ","\nError",1,31,1,array[posicion].nombre);             //mensaje + cambiar campo varFloat
                         break;
                     case 'C':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
+                        utn_getName("\ningrese apellido : ","\nError",1,31,1,array[posicion].apellido);                      //mensaje + cambiar campo varString
                         break;
                     case 'D':
-                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);             //mensaje + cambiar campo varLongString
+                        utn_getTelefono("\ningrese telefono : ","\nError",1,16,100000000,9999999999999999,1,array[posicion].telefono);             //mensaje + cambiar campo varLongString
+                        break;
+                    case 'E':
+                        utn_getEmail("\ningrese mail: ","error",1,31,1,array[posicion].mail);
+                        break;
+                    case 'F':
+                        utn_getChar("\ningrese sexo f/m: ","error",'A','Z',1,array[posicion].sexo);
                         break;
                     case 'S':
                         break;
@@ -322,18 +334,18 @@ int socios_ordenarPorDobleCriterio(Socios array[],int size, int orderFirst, int 
             flagSwap=0;
             for (i = 1; i < size-1; i++)
             {
-                if( ((strcmp(array[i].varString,array[i+1].varString) < 0) && orderFirst) ||
-                    ((strcmp(array[i].varString,array[i+1].varString) > 0) && !orderFirst) )
+                if( ((strcmp(array[i].nombre,array[i+1].nombre) < 0) && orderFirst) ||
+                    ((strcmp(array[i].nombre,array[i+1].nombre) > 0) && !orderFirst) )
                 {
                     flagSwap=1;
                     buffer = array[i];
                     array[i] = array[i+1];
                     array[i+1] = buffer;
                 }
-                else if(strcmp(array[i].varString,array[i+1].varString) == 0)
+                else if(strcmp(array[i].nombre,array[i+1].nombre) == 0)
                 {
-                    if( ((array[i].varFloat < array[i+1].varFloat) && orderSecond) ||
-                        ((array[i].varFloat > array[i+1].varFloat) && !orderSecond) )
+                    if( ((array[i].apellido < array[i+1].apellido) && orderSecond) ||
+                        ((array[i].apellido > array[i+1].apellido) && !orderSecond) )
                     {
                         flagSwap=1;
                         buffer = array[i];
@@ -367,8 +379,8 @@ int socios_listar(Socios array[], int size)                      //cambiar socio
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                       array[i].idUnico,array[i].varInt,array[i].varFloat,array[i].varString,array[i].varLongString);      //cambiar todos
+                printf("\n ID: %d\n nombre: %s\n apellido: %s\n telefono: %s\n mail: %s \n sexo: %c",
+                       array[i].idSocio,array[i].nombre,array[i].apellido,array[i].telefono,array[i].mail,array[i].sexo);      //cambiar todos
         }
         retorno=0;
     }
@@ -379,35 +391,40 @@ int socios_listar(Socios array[], int size)                      //cambiar socio
 void socios_mock(Socios arraySocios[], int size,int *contadorId)                      //cambiar socios
 {
     //*******************************************************************
-    arraySocios[0].idUnico=0;
+    arraySocios[0].idSocio=0;
     arraySocios[0].isEmpty=0;
-    arraySocios[0].varInt=0;
-    arraySocios[0].varFloat=0;
-    strcpy(arraySocios[0].varLongString,"CCCCC");
-    strcpy(arraySocios[0].varString,"CCCCC");
+    strcpy(arraySocios[0].nombre,"joe");
+    strcpy(arraySocios[0].apellido,"morello");
+    strcpy(arraySocios[0].telefono,"54342972");
+    strcpy(arraySocios[0].mail,"joecapo@joelin.com");
+    arraySocios[0].sexo="m";
     *contadorId++;
 
-    arraySocios[1].idUnico=1;
+    arraySocios[1].idSocio=1;
     arraySocios[1].isEmpty=0;
-    arraySocios[1].varInt=0;
-    arraySocios[1].varFloat=0;
-    strcpy(arraySocios[1].varLongString,"AAAAA");
-    strcpy(arraySocios[1].varString,"AAAAA");
+    strcpy(arraySocios[1].nombre,"gaston");
+    strcpy(arraySocios[1].apellido,"picazo");
+    strcpy(arraySocios[1].telefono,"45552555");
+    strcpy(arraySocios[1].mail,"elmississippi@missi.com");
+    arraySocios[1].sexo="m";
     *contadorId++;
 
-    arraySocios[2].idUnico=2;
+    arraySocios[2].idSocio=2;
     arraySocios[2].isEmpty=0;
-    arraySocios[2].varInt=0;
-    arraySocios[2].varFloat=20;
-    strcpy(arraySocios[2].varLongString,"BBBBB");
-    strcpy(arraySocios[2].varString,"BBBBBB");
+    strcpy(arraySocios[2].nombre,"margot");
+    strcpy(arraySocios[2].apellido,"gatienzo");
+    strcpy(arraySocios[2].telefono,"20222125");
+    strcpy(arraySocios[2].mail,"ohmargo@gato.com");
+    arraySocios[2].sexo="f";
     *contadorId++;
 
-    arraySocios[3].idUnico=3;
+    arraySocios[3].idSocio=3;
     arraySocios[3].isEmpty=0;
-    arraySocios[3].varInt=0;
-    arraySocios[3].varFloat=10;
-    strcpy(arraySocios[3].varLongString,"BBBBB");
-    strcpy(arraySocios[3].varString,"BBBBBB");
-    contadorId++;
+    strcpy(arraySocios[3].nombre,"matias");
+    strcpy(arraySocios[3].apellido,"moll");
+    strcpy(arraySocios[3].telefono,"54558825");
+    strcpy(arraySocios[3].mail,"matiassabiondo@programacion.com");
+    arraySocios[3].sexo="m";
+    *contadorId++;
+
 }

@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
+#include "socios.h"
+#include "libros.h"
 #include "prestamos.h" //cambiar por nombre entidad
 
 
@@ -13,7 +15,7 @@
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
 */
-int Prestamos_Inicializar(Prestamos array[], int size)                                    //cambiar Prestamos
+int prestamos_Inicializar(Prestamos array[], int size)                                    //cambiar Prestamos
 {
     int retorno=-1;
     if(array!= NULL && size>0)
@@ -37,7 +39,7 @@ int Prestamos_Inicializar(Prestamos array[], int size)                          
 * \return int Return (-1) si no encuentra un lugar vacio o Error [Invalid length or NULL pointer] - (0) si encuentra una posicion vacia
 *
 */
-int Prestamos_buscarEmpty(Prestamos array[], int size, int* posicion)                    //cambiar Prestamos
+int prestamos_buscarEmpty(Prestamos array[], int size, int* posicion)                    //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -63,7 +65,7 @@ int Prestamos_buscarEmpty(Prestamos array[], int size, int* posicion)           
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
-int Prestamos_buscarID(Prestamos array[], int size, int valorBuscado, int* posicion)                    //cambiar Prestamos
+int prestamos_buscarID(Prestamos array[], int size, int valorBuscado, int* posicion)                    //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -73,7 +75,7 @@ int Prestamos_buscarID(Prestamos array[], int size, int valorBuscado, int* posic
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].idUnico==valorBuscado)                                                   //cambiar campo ID
+            else if(array[i].idPrestamo==valorBuscado)                                                   //cambiar campo ID
             {
                 retorno=0;
                 *posicion=i;
@@ -90,7 +92,7 @@ int Prestamos_buscarID(Prestamos array[], int size, int valorBuscado, int* posic
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
-int Prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posicion)                    //cambiar Prestamos
+int prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posicion)                    //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -100,7 +102,7 @@ int Prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posi
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].varInt==valorBuscado)                                                   //cambiar campo varInt
+            else if(array[i].idSocio==valorBuscado)                                                   //cambiar campo varInt
             {
                 retorno=0;
                 *posicion=i;
@@ -119,7 +121,7 @@ int Prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posi
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
-int Prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int* indice)                    //cambiar Prestamos
+/*int Prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int* indice)                    //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -129,7 +131,7 @@ int Prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int*
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(strcmp(array[i].varString,valorBuscado)==0)                                        //cambiar campo varString
+            /*else if(strcmp(array[i].,valorBuscado)==0)                                        //cambiar campo varString
             {
                 *indice=i;
                 retorno=0;
@@ -138,7 +140,7 @@ int Prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int*
         }
     }
     return retorno;
-}
+}*/
 
 //*****************************************
 //Alta
@@ -149,27 +151,30 @@ int Prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int*
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no hay posiciones vacias] - (0) si se agrega un nuevo elemento exitosamente
 *
 */
-int Prestamos_alta(Prestamos array[], int size, int* contadorID)                          //cambiar Prestamos
+int prestamos_alta(Prestamos array[],Socios *arraySocios,int sizeSocios,Libros *arrayLibros, int sizeLibros,int size, int* contadorID)                          //cambiar Prestamos
 {
     int retorno=-1;
     int posicion;
     if(array!=NULL && size>0 && contadorID!=NULL)
     {
-        if(Prestamos_buscarEmpty(array,size,&posicion)==-1)                          //cambiar Prestamos
+        if(prestamos_buscarEmpty(array,size,&posicion)==-1)                          //cambiar Prestamos
         {
             printf("\nNo hay lugares vacios");
         }
         else
         {
             (*contadorID)++;
-            array[posicion].idUnico=*contadorID;                                                       //campo ID
+            array[posicion].idPrestamo=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
-            utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-            utn_getName("\ngetName: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
-            utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
-            printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                   posicion, array[posicion].idUnico,array[posicion].varInt,array[posicion].varFloat,array[posicion].varString,array[posicion].varLongString);
+            socios_listar(arraySocios,sizeSocios);
+            utn_getUnsignedInt("\ningrese id de socio: ","\nError",1,sizeof(int),1,10,1,&array[posicion].idSocio);
+            libros_listar(arrayLibros,sizeLibros);
+            utn_getUnsignedInt("\ningrese id de libro: ","\nError",1,sizeof(int),1,10,1,&array[posicion].idLibro);           //mensaje + cambiar campo varInt
+            //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
+                                //mensaje + cambiar campo varString
+                            //mensaje + cambiar campo varLongString
+            printf("\n Posicion: %d\n ID prestamo: %d\n ID socio: %d\n ID libro: %d",
+                   posicion, array[posicion].idPrestamo,array[posicion].idSocio,array[posicion].idLibro);
             retorno=0;
         }
     }
@@ -184,7 +189,7 @@ int Prestamos_alta(Prestamos array[], int size, int* contadorID)                
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int Prestamos_baja(Prestamos array[], int sizeArray)                                      //cambiar Prestamos
+int prestamos_baja(Prestamos array[], int sizeArray)                                      //cambiar Prestamos
 {
     int retorno=-1;
     int posicion;
@@ -192,18 +197,17 @@ int Prestamos_baja(Prestamos array[], int sizeArray)                            
     if(array!=NULL && sizeArray>0)
     {
         utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
-        if(Prestamos_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        if(prestamos_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
         }
         else
         {
             array[posicion].isEmpty=1;
-            array[posicion].idUnico=0;                                                                   //cambiar campo id
-            array[posicion].varInt=0;                                                               //cambiar campo varInt
-            array[posicion].varFloat=0;                                                             //cambiar campo varFloat
-            strcpy(array[posicion].varString,"");                                                   //cambiar campo varString
-            strcpy(array[posicion].varLongString,"");                                               //cambiar campo varLongString
+            array[posicion].idPrestamo=0;                                                                   //cambiar campo id
+            array[posicion].idSocio=0;                                                               //cambiar campo varInt
+            array[posicion].idLibro=0;                                                             //cambiar campo varFloat
+                                                        //cambiar campo varLongString
             retorno=0;
         }
     }
@@ -218,7 +222,7 @@ int Prestamos_baja(Prestamos array[], int sizeArray)                            
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int Prestamos_bajaValorRepetidoInt(Prestamos array[], int sizeArray, int valorBuscado) //cuando hay que dar de baja todas las posiciones en las que se encuentra ese int
+int prestamos_bajaValorRepetidoInt(Prestamos array[], int sizeArray, int valorBuscado) //cuando hay que dar de baja todas las posiciones en las que se encuentra ese int
 {
     int retorno=-1;
     int i;
@@ -226,14 +230,13 @@ int Prestamos_bajaValorRepetidoInt(Prestamos array[], int sizeArray, int valorBu
     {
         for(i=0;i<sizeArray;i++)
         {
-            if(array[i].idUnico==valorBuscado)                                                        //cambiar si no se busca por ID
+            if(array[i].idPrestamo==valorBuscado)                                                        //cambiar si no se busca por ID
             {
                 array[i].isEmpty=1;
-                array[i].idUnico=0;                                                                   //cambiar campo id
-                array[i].varInt=0;                                                               //cambiar campo varInt
-                array[i].varFloat=0;                                                             //cambiar campo varFloat
-                strcpy(array[i].varString,"");                                                   //cambiar campo varString
-                strcpy(array[i].varLongString,"");                                               //cambiar campo varLongString
+                array[i].idPrestamo=0;                                                                   //cambiar campo id
+                array[i].idSocio=0;                                                               //cambiar campo varInt
+                array[i].idLibro=0;                                                             //cambiar campo varFloat
+                                                     //cambiar campo varLongString
             }
         }
         retorno=0;
@@ -251,7 +254,7 @@ int Prestamos_bajaValorRepetidoInt(Prestamos array[], int sizeArray, int valorBu
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
 */
-int Prestamos_modificar(Prestamos array[], int sizeArray)                                //cambiar Prestamos
+int prestamos_modificar(Prestamos array[], int sizeArray)                                //cambiar Prestamos
 {
     int retorno=-1;
     int posicion;
@@ -260,7 +263,7 @@ int Prestamos_modificar(Prestamos array[], int sizeArray)                       
     if(array!=NULL && sizeArray>0)
     {
         utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);         //cambiar si no se busca por ID
-        if(Prestamos_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        if(prestamos_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
         }
@@ -268,23 +271,21 @@ int Prestamos_modificar(Prestamos array[], int sizeArray)                       
         {
             do
             {       //copiar printf de alta
-                printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                       posicion, array[posicion].idUnico,array[posicion].varInt,array[posicion].varFloat,array[posicion].varString,array[posicion].varLongString);
+                printf("\n Posicion: %d\n ID: %d\n id prestamo: %d\n id socio: %d\n id libro: %d",
+                       posicion, array[posicion].idPrestamo,array[posicion].idSocio,array[posicion].idLibro);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
+                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idPrestamo);           //mensaje + cambiar campo varInt
                         break;
                     case 'B':
-                        utn_getFloat("\n: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
+                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idSocio);         //mensaje + cambiar campo varFloat
                         break;
                     case 'C':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
+                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idLibro);                       //mensaje + cambiar campo varString
                         break;
-                    case 'D':
-                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);             //mensaje + cambiar campo varLongString
-                        break;
+
                     case 'S':
                         break;
                     default:
@@ -308,7 +309,7 @@ int Prestamos_modificar(Prestamos array[], int sizeArray)                       
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
 */
-int Prestamos_ordenarPorDobleCriterio(Prestamos array[],int size, int orderFirst, int orderSecond)                              //cambiar Prestamos
+int prestamos_ordenarPorDobleCriterio(Prestamos array[],int size, int orderFirst, int orderSecond)                              //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -322,18 +323,18 @@ int Prestamos_ordenarPorDobleCriterio(Prestamos array[],int size, int orderFirst
             flagSwap=0;
             for (i = 1; i < size-1; i++)
             {
-                if( ((strcmp(array[i].varString,array[i+1].varString) < 0) && orderFirst) ||
-                    ((strcmp(array[i].varString,array[i+1].varString) > 0) && !orderFirst) )
+                if( ((strcmp(array[i].idLibro,array[i+1].idLibro) < 0) && orderFirst) ||
+                    ((strcmp(array[i].idLibro,array[i+1].idLibro) > 0) && !orderFirst) )
                 {
                     flagSwap=1;
                     buffer = array[i];
                     array[i] = array[i+1];
                     array[i+1] = buffer;
                 }
-                else if(strcmp(array[i].varString,array[i+1].varString) == 0)
+                else if(strcmp(array[i].idLibro,array[i+1].idLibro) == 0)
                 {
-                    if( ((array[i].varFloat < array[i+1].varFloat) && orderSecond) ||
-                        ((array[i].varFloat > array[i+1].varFloat) && !orderSecond) )
+                    if( ((array[i].idSocio < array[i+1].idSocio) && orderSecond) ||
+                        ((array[i].idSocio > array[i+1].idSocio) && !orderSecond) )
                     {
                         flagSwap=1;
                         buffer = array[i];
@@ -356,7 +357,7 @@ int Prestamos_ordenarPorDobleCriterio(Prestamos array[],int size, int orderFirst
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int Prestamos_listar(Prestamos array[], int size)                      //cambiar Prestamos
+int prestamos_listar(Prestamos array[], int size)                      //cambiar Prestamos
 {
     int retorno=-1;
     int i;
@@ -367,8 +368,8 @@ int Prestamos_listar(Prestamos array[], int size)                      //cambiar
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
-                       array[i].idUnico,array[i].varInt,array[i].varFloat,array[i].varString,array[i].varLongString);      //cambiar todos
+                printf("\n ID: %d\n id prestamo: %d\n id socio: %d\n id libro: %d",
+                       array[i].idPrestamo,array[i].idSocio,array[i].idLibro);      //cambiar todos
         }
         retorno=0;
     }
@@ -376,38 +377,30 @@ int Prestamos_listar(Prestamos array[], int size)                      //cambiar
 }
 
 
-void Prestamos_mock(Prestamos arrayPrestamos[], int size,int *contadorId)                      //cambiar Prestamos
+void prestamos_mock(Prestamos arrayPrestamos[], int size,int *contadorId)                      //cambiar Prestamos
 {
     //*******************************************************************
-    arrayPrestamos[0].idUnico=0;
+    arrayPrestamos[0].idPrestamo=0;
     arrayPrestamos[0].isEmpty=0;
-    arrayPrestamos[0].varInt=0;
-    arrayPrestamos[0].varFloat=0;
-    strcpy(arrayPrestamos[0].varLongString,"CCCCC");
-    strcpy(arrayPrestamos[0].varString,"CCCCC");
+    arrayPrestamos[0].idSocio=0;
+    arrayPrestamos[0].idLibro=0;
     *contadorId++;
 
-    arrayPrestamos[1].idUnico=1;
+    arrayPrestamos[1].idPrestamo=1;
     arrayPrestamos[1].isEmpty=0;
-    arrayPrestamos[1].varInt=0;
-    arrayPrestamos[1].varFloat=0;
-    strcpy(arrayPrestamos[1].varLongString,"AAAAA");
-    strcpy(arrayPrestamos[1].varString,"AAAAA");
+    arrayPrestamos[1].idSocio=0;
+    arrayPrestamos[1].idLibro=0;
     *contadorId++;
 
-    arrayPrestamos[2].idUnico=2;
+    arrayPrestamos[2].idPrestamo=2;
     arrayPrestamos[2].isEmpty=0;
-    arrayPrestamos[2].varInt=0;
-    arrayPrestamos[2].varFloat=20;
-    strcpy(arrayPrestamos[2].varLongString,"BBBBB");
-    strcpy(arrayPrestamos[2].varString,"BBBBBB");
+    arrayPrestamos[2].idSocio=0;
+    arrayPrestamos[2].idLibro=0;
     *contadorId++;
 
-    arrayPrestamos[3].idUnico=3;
+    arrayPrestamos[3].idPrestamo=3;
     arrayPrestamos[3].isEmpty=0;
-    arrayPrestamos[3].varInt=0;
-    arrayPrestamos[3].varFloat=10;
-    strcpy(arrayPrestamos[3].varLongString,"BBBBB");
-    strcpy(arrayPrestamos[3].varString,"BBBBBB");
+    arrayPrestamos[3].idSocio=0;
+    arrayPrestamos[3].idLibro=0;
     contadorId++;
 }

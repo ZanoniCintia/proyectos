@@ -237,3 +237,74 @@
 	"utn.h"
 	"prestamos.h"
 
+1557601023 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/autor.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"autor.h"
+
+1557599939 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/utn.h
+
+1557600687 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/autor.h
+
+1557599939 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/fantasma.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557599939 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/fantasma.h
+
+1557599939 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557608941 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/libros.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"libros.h"
+
+1557600687 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/libros.h
+
+1557608402 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+	"autor.h"
+	"libros.h"
+	"socios.h"
+	"prestamos.h"
+
+1557604648 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/socios.h
+
+1557609563 /home/cintia/zanoni/proyectos/Parcial_Modelo_libros/prestamos.h
+
+1557608002 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/prestamos.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"prestamos.h"
+
+1557608801 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/socios.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"socios.h"
+
+1557599939 source:/home/cintia/zanoni/proyectos/Parcial_Modelo_libros/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+

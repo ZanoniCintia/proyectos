@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#include "fantasma.h"  //cambiar por nombre entidad
+#include "fantasma.h"
+
 
 /** \brief Busca un valor y lista los elementos de dos arrays vinculados
 * \param arrayA Fantasma Array de Fantasma

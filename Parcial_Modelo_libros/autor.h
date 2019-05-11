@@ -5,7 +5,7 @@
 
 typedef struct
 {
-    int idUnico;
+    int idAutor;
     int isEmpty;
     //-----------------
     char nombre[TEXT_SIZE];

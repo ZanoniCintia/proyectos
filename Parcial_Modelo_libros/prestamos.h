@@ -5,15 +5,12 @@
 
 typedef struct
 {
-    int idUnico;
+    int idPrestamo;
     int isEmpty;
+    int idLibro;
+    int idSocio;
     //-----------------
-    char varString[TEXT_SIZE];
-    int varInt;
-    float varFloat;
-    char varChar;
-    char varLongString[TEXT_SIZE];
-
+//    Fecha;
 }Prestamos;
 
 
@@ -24,7 +21,7 @@ int prestamos_buscarEmpty(Prestamos array[], int size, int* posicion);          
 int prestamos_buscarID(Prestamos array[], int size, int valorBuscado, int* posicion);                    //cambiar prestamos
 int prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posicion);                    //cambiar prestamos
 int prestamos_buscarString(Prestamos array[], int size, char* valorBuscado, int* indice);                    //cambiar prestamos
-int prestamos_alta(Prestamos array[], int size, int* contadorID);                          //cambiar prestamos
+int prestamos_alta(Prestamos array[],Socios *arraySocios,int sizeSocios,Libros *arrayLibros, int sizeLibros,int size, int* contadorID);                         //cambiar prestamos
 int prestamos_baja(Prestamos array[], int sizeArray);                                      //cambiar prestamos
 int prestamos_bajaValorRepetidoInt(Prestamos array[], int sizeArray, int valorBuscado);
 int prestamos_modificar(Prestamos array[], int sizeArray);                                //cambiar prestamos

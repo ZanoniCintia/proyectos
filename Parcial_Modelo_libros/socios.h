@@ -1,19 +1,19 @@
 #ifndef SOCIOS_H_INCLUDED
 #define SOCIOS_H_INCLUDED
 
-#define TEXT_SIZE 20
+#define TEXT_SIZE 31
 
 typedef struct
 {
-    int idUnico;
+    int idSocio;
     int isEmpty;
     //-----------------
-    char varString[TEXT_SIZE];
-    int varInt;
-    float varFloat;
-    char varChar;
-    char varLongString[TEXT_SIZE];
-
+    char nombre[TEXT_SIZE];
+    char apellido[TEXT_SIZE];
+    char sexo;
+    char telefono[16];
+    char mail[31];
+    //Fecha;
 }Socios;
 
 
@@ -30,4 +30,5 @@ int socios_bajaValorRepetidoInt(Socios array[], int sizeArray, int valorBuscado)
 int socios_modificar(Socios array[], int sizeArray);                                //cambiar socios
 int socios_ordenarPorDobleCriterio(Socios array[],int size, int orderFirst, int orderSecond);                                  //cambiar socios
 int socios_listar(Socios array[], int size);                      //cambiar socios
-void socios_mock(Socios arraySocios[], int size,int *contadorId);                      //cambiar socios
+void socios_mock(Socios arraySocios[], int size,int *contadorId);
+int socios_buscarNombreyApellido ( Socios array[], int size, char* valorBuscado,char* apellidoBuscado, int* indice);                     //cambiar socios

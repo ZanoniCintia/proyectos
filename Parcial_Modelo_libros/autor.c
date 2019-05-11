@@ -73,7 +73,7 @@ int autor_buscarID(Autor array[], int size, int valorBuscado, int* posicion)    
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].idUnico==valorBuscado)                                                   //cambiar campo ID
+            else if(array[i].idAutor==valorBuscado)                                                   //cambiar campo ID
             {
                 retorno=0;
                 *posicion=i;
@@ -136,14 +136,14 @@ int autor_alta(Autor array[], int size, int* contadorID)                        
         else
         {
             (*contadorID)++;
-            array[posicion].idUnico=*contadorID;                                                       //campo ID
+            array[posicion].idAutor=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
             //utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
             utn_getName("\ngetName: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
             utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                 //mensaje + cambiar campo apellido
             printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s",
-                   posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].apellido);
+                   posicion, array[posicion].idAutor,array[posicion].nombre,array[posicion].apellido);
             retorno=0;
         }
     }
@@ -173,7 +173,7 @@ int autor_baja(Autor array[], int sizeArray)                                    
         else
         {
             array[posicion].isEmpty=1;
-            array[posicion].idUnico=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
+            array[posicion].idAutor=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
             strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
             strcpy(array[posicion].apellido,"");                                               //cambiar campo apellido
             retorno=0;
@@ -198,10 +198,10 @@ int autor_bajaValorRepetidoInt(Autor array[], int sizeArray, int valorBuscado) /
     {
         for(i=0;i<sizeArray;i++)
         {
-            if(array[i].idUnico==valorBuscado)                                                        //cambiar si no se busca por ID
+            if(array[i].idAutor==valorBuscado)                                                        //cambiar si no se busca por ID
             {
                 array[i].isEmpty=1;
-                array[i].idUnico=0;                                                                   //cambiar campo id
+                array[i].idAutor=0;                                                                   //cambiar campo id
                                                            //cambiar campo varFloat
                 strcpy(array[i].nombre,"");                                                   //cambiar campo nombre
                 strcpy(array[i].apellido,"");                                               //cambiar campo apellido
@@ -240,7 +240,7 @@ int autor_modificar(Autor array[], int sizeArray)                               
             do
             {       //copiar printf de alta
                 printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s",
-                   posicion, array[posicion].idUnico,array[posicion].nombre,array[posicion].apellido);
+                   posicion, array[posicion].idAutor,array[posicion].nombre,array[posicion].apellido);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
@@ -339,7 +339,7 @@ int autor_listar(Autor array[], int size)                      //cambiar autor
                 continue;
             else
                 printf("\n ID: %d\n nombre: %s\n apellido: %s",
-                       array[i].idUnico,array[i].nombre,array[i].apellido);      //cambiar todos
+                       array[i].idAutor,array[i].nombre,array[i].apellido);      //cambiar todos
         }
         retorno=0;
     }
@@ -350,25 +350,25 @@ int autor_listar(Autor array[], int size)                      //cambiar autor
 void autor_mock(Autor arrayAutor[], int size,int *contadorId)                      //cambiar autor
 {
 
-    arrayAutor[0].idUnico=0;
+    arrayAutor[0].idAutor=0;
     arrayAutor[0].isEmpty=0;
     strcpy(arrayAutor[0].apellido,"CCCCC");
     strcpy(arrayAutor[0].nombre,"CCCCC");
     *contadorId++;
 
-    arrayAutor[1].idUnico=1;
+    arrayAutor[1].idAutor=1;
     arrayAutor[1].isEmpty=0;
     strcpy(arrayAutor[1].apellido,"AAAAA");
     strcpy(arrayAutor[1].nombre,"AAAAA");
     *contadorId++;
 
-    arrayAutor[2].idUnico=2;
+    arrayAutor[2].idAutor=2;
     arrayAutor[2].isEmpty=0;
     strcpy(arrayAutor[2].apellido,"BBBBB");
     strcpy(arrayAutor[2].nombre,"BBBBBB");
     *contadorId++;
 
-    arrayAutor[3].idUnico=3;
+    arrayAutor[3].idAutor=3;
     arrayAutor[3].isEmpty=0;
     strcpy(arrayAutor[3].apellido,"BBBBB");
     strcpy(arrayAutor[3].nombre,"BBBBBB");
