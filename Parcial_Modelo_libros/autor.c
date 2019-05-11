@@ -140,8 +140,8 @@ int autor_alta(Autor array[], int size, int* contadorID)                        
             array[posicion].isEmpty=0;
             //utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-            utn_getName("\ngetName: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
-            utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                 //mensaje + cambiar campo apellido
+            utn_getTexto("\ningrese nombre: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
+            utn_getTexto("\ningrese apellido: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                 //mensaje + cambiar campo apellido
             printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s",
                    posicion, array[posicion].idAutor,array[posicion].nombre,array[posicion].apellido);
             retorno=0;

@@ -381,19 +381,19 @@ void libros_mock(Libros arrayLibros[], int size,int *contadorId)                
 
     arrayLibros[1].idLibros=1;
     arrayLibros[1].isEmpty=0;
-    arrayLibros[1].idAutor=0;
+    arrayLibros[1].idAutor=3;
     strcpy(arrayLibros[1].titulo,"margot");
     *contadorId++;
 
     arrayLibros[2].idLibros=2;
     arrayLibros[2].isEmpty=0;
-    arrayLibros[2].idAutor=0;
+    arrayLibros[2].idAutor=5;
     strcpy(arrayLibros[2].titulo,"lolito");
     *contadorId++;
 
     arrayLibros[3].idLibros=3;
     arrayLibros[3].isEmpty=0;
-    arrayLibros[3].idAutor=0;
+    arrayLibros[3].idAutor=1;
     strcpy(arrayLibros[3].titulo,"sol");
     contadorId++;
 }
