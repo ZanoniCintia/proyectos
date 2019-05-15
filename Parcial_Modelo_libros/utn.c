@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "utn.h"
 
 /*
@@ -575,5 +576,38 @@ int isValidChar(char charRecibido)
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     if(charRecibido<'A' || (charRecibido>'Z' && charRecibido<'a') || charRecibido>'z')
         retorno=0;
+    return retorno;
+}
+
+int getSexo(char* msg,char* msgError, int reintentos,char resultado)
+{
+    int retorno=-1;
+    char buffer;
+    if(msg!=NULL && msgError!=NULL && reintentos>=0)
+    {
+        do{
+            if(getString(msg,msgError,1,2,reintentos,&buffer)&& isValidSexo(buffer))
+            {
+                resultado=buffer;
+                retorno=0;
+                break;
+            }else
+                {
+                    printf("%s",msgError);
+                }
+
+        }while(reintentos--);
+    }
+    return retorno;
+}
+
+int isValidSexo(char cadena)
+{
+    int retorno=-1;
+    cadena=tolower(cadena);
+    if(cadena !='f' && cadena !='m')
+    {
+        retorno=0;
+    }
     return retorno;
 }

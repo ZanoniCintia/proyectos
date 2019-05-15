@@ -310,3 +310,69 @@
 	<string.h>
 	"utn.h"
 
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\autor.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"autor.h"
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\utn.h
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\autor.h
+
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\libros.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"libros.h"
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\libros.h
+
+1557953876 source:c:\zanoni\proyectos\parcial_modelo_libros\main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+	"autor.h"
+	"libros.h"
+	"socios.h"
+	"prestamos.h"
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\fantasma.h
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\socios.h
+
+1557953136 c:\zanoni\proyectos\parcial_modelo_libros\prestamos.h
+
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\prestamos.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"socios.h"
+	"libros.h"
+	"prestamos.h"
+
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\socios.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"socios.h"
+
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1557953136 source:c:\zanoni\proyectos\parcial_modelo_libros\fantasma.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+

@@ -165,7 +165,8 @@ int main()
                     break;
 
                 case 5://Ordenar
-                    libros_ordenarPorDobleCriterio(arrayLibros,QTY_ARRAY_LIBROS,SORT_UP,SORT_DOWN);                   //cambiar
+                    libros_ordenarPorDobleCriterio(arrayLibros,QTY_ARRAY_LIBROS,SORT_UP,SORT_DOWN);
+                    libros_listar(arrayLibros,QTY_ARRAY_LIBROS);                   //cambiar
                     break;
                 case 6:
                     break;
