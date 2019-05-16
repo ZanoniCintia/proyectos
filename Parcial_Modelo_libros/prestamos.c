@@ -131,7 +131,7 @@ int prestamos_buscarInt(Prestamos array[], int size, int valorBuscado, int* posi
         {
             if(array[i].isEmpty==1)
                 continue;
-            /*else if(strcmp(array[i].,valorBuscado)==0)                                        //cambiar campo varString
+            else if(strcmp(array[i].,valorBuscado)==0)                                        //cambiar campo varString
             {
                 *indice=i;
                 retorno=0;

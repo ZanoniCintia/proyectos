@@ -1,7 +1,7 @@
 #ifndef SOCIOS_H_INCLUDED
 #define SOCIOS_H_INCLUDED
 
-#define TEXT_SIZE 31
+#define TEXT_SIZE 51
 
 typedef struct
 {

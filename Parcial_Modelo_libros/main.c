@@ -14,6 +14,7 @@
 #define SORT_UP 1
 #define SORT_DOWN 0
 
+
 int main()
 {
     int opcion;
@@ -32,7 +33,7 @@ int main()
     int contadorIdsocios=0;
     Socios arraySocios[QTY_ARRAY_SOCIOS];                   //cambiar
     socios_Inicializar(arraySocios,QTY_ARRAY_SOCIOS);                   //cambiar
-    socios_mock(arraySocios, QTY_ARRAY_SOCIOS, &contadorIdsocios) ;
+    socios_mock(arraySocios, QTY_ARRAY_SOCIOS, &contadorIdsocios);
 
     int contadorIdlibros=0;
     Libros arrayLibros[QTY_ARRAY_LIBROS];                   //cambiar
@@ -73,7 +74,8 @@ int main()
                     break;
 
                 case 5://Ordenar
-                    autor_ordenarPorDobleCriterio(arrayAutor,QTY_ARRAY_AUTOR,SORT_UP,SORT_DOWN);                   //cambiar
+                    autor_ordenarPorDobleCriterio(arrayAutor,QTY_ARRAY_AUTOR,SORT_UP,SORT_DOWN);
+                    autor_listar(arrayAutor,QTY_ARRAY_AUTOR);                   //cambiar
                     break;
                 case 6:
                     break;
@@ -104,7 +106,8 @@ int main()
                         break;
 
                     case 5://Ordenar
-                        socios_ordenarPorDobleCriterio(arraySocios,QTY_ARRAY_SOCIOS,SORT_UP,SORT_DOWN);                   //cambiar
+                        socios_ordenarPorDobleCriterio(arraySocios,QTY_ARRAY_SOCIOS,SORT_UP,SORT_DOWN);
+                        socios_listar(arraySocios,QTY_ARRAY_SOCIOS);                   //cambiar
                         break;
                     case 6:
                     break;
@@ -135,7 +138,8 @@ int main()
                     break;
 
                 case 5://Ordenar
-                    prestamos_ordenarPorDobleCriterio(arrayPrestamos,QTY_ARRAY_PRESTAMOS,SORT_UP,SORT_DOWN);                   //cambiar
+                    prestamos_ordenarPorDobleCriterio(arrayPrestamos,QTY_ARRAY_PRESTAMOS,SORT_UP,SORT_DOWN);
+                    prestamos_listar(arrayPrestamos,QTY_ARRAY_PRESTAMOS);                  //cambiar
                     break;
                 }
                 case 6:
@@ -175,6 +179,5 @@ int main()
             break;
         }
         }while(primeraOpcion!=5);
-
-
+    return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef AUTOR_H_INCLUDED
 #define AUTOR_H_INCLUDED
 
-#define TEXT_SIZE 20
+#define TEXT_SIZE 31
 
 typedef struct
 {

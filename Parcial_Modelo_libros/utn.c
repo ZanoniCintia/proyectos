@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "utn.h"
 
+int isValidSexo(char cadena);
 /*
 getString
 utn_getName
@@ -586,7 +587,7 @@ int getSexo(char* msg,char* msgError, int reintentos,char resultado)
     if(msg!=NULL && msgError!=NULL && reintentos>=0)
     {
         do{
-            if(getString(msg,msgError,1,2,reintentos,&buffer)&& isValidSexo(buffer))
+            if(!getString(msg,msgError,1,2,reintentos,&buffer)&& isValidSexo(buffer))
             {
                 resultado=buffer;
                 retorno=0;
@@ -611,3 +612,4 @@ int isValidSexo(char cadena)
     }
     return retorno;
 }
+
