@@ -1,14 +1,14 @@
 #ifndef LIBROS_H_INCLUDED
 #define LIBROS_H_INCLUDED
 
-#define TEXT_SIZE 51
+#define TEXT_SIZE_LIBROS 51
 
 typedef struct
 {
     int idLibros;
     int isEmpty;
     //-----------------
-    char titulo[TEXT_SIZE];
+    char titulo[TEXT_SIZE_LIBROS];
     int idAutor;
 
 }Libros;

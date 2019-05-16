@@ -587,7 +587,7 @@ int getSexo(char* msg,char* msgError, int reintentos,char resultado)
     if(msg!=NULL && msgError!=NULL && reintentos>=0)
     {
         do{
-            if(!getString(msg,msgError,1,2,reintentos,&buffer)&& isValidSexo(buffer))
+            if(!getString(msg,msgError,1,2,&reintentos,&buffer)&& isValidSexo(buffer))
             {
                 resultado=buffer;
                 retorno=0;

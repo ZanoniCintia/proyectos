@@ -379,35 +379,35 @@ int fantasma_listar(Fantasma array[], int size)                      //cambiar f
 void fantasma_mock(Fantasma arrayFantasma[], int size,int *contadorId)                      //cambiar fantasma
 {
     //*******************************************************************
-    arrayFantasma[0].idUnico=0;
+    arrayFantasma[0].idUnico=*contadorId ;
     arrayFantasma[0].isEmpty=0;
     arrayFantasma[0].varInt=0;
     arrayFantasma[0].varFloat=0;
     strcpy(arrayFantasma[0].varLongString,"CCCCC");
     strcpy(arrayFantasma[0].varString,"CCCCC");
-    *contadorId++;
+    *contadorId=*contadorId +1;
 
-    arrayFantasma[1].idUnico=1;
+    arrayFantasma[1].idUnico=*contadorId;
     arrayFantasma[1].isEmpty=0;
     arrayFantasma[1].varInt=0;
     arrayFantasma[1].varFloat=0;
     strcpy(arrayFantasma[1].varLongString,"AAAAA");
     strcpy(arrayFantasma[1].varString,"AAAAA");
-    *contadorId++;
+    *contadorId=*contadorId +1;
 
-    arrayFantasma[2].idUnico=2;
+    arrayFantasma[2].idUnico=*contadorId;
     arrayFantasma[2].isEmpty=0;
     arrayFantasma[2].varInt=0;
     arrayFantasma[2].varFloat=20;
     strcpy(arrayFantasma[2].varLongString,"BBBBB");
     strcpy(arrayFantasma[2].varString,"BBBBBB");
-    *contadorId++;
+    *contadorId=*contadorId +1;
 
-    arrayFantasma[3].idUnico=3;
+    arrayFantasma[3].idUnico=*contadorId;
     arrayFantasma[3].isEmpty=0;
     arrayFantasma[3].varInt=0;
     arrayFantasma[3].varFloat=10;
     strcpy(arrayFantasma[3].varLongString,"BBBBB");
     strcpy(arrayFantasma[3].varString,"BBBBBB");
-    contadorId++;
+    //contadorId=*contadorId +1;
 }

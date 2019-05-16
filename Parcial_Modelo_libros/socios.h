@@ -1,15 +1,15 @@
 #ifndef SOCIOS_H_INCLUDED
 #define SOCIOS_H_INCLUDED
 
-#define TEXT_SIZE 51
+#define TEXT_SIZE_SOCIOS 51
 
 typedef struct
 {
     int idSocio;
     int isEmpty;
     //-----------------
-    char nombre[TEXT_SIZE];
-    char apellido[TEXT_SIZE];
+    char nombre[TEXT_SIZE_SOCIOS];
+    char apellido[TEXT_SIZE_SOCIOS];
     char sexo;
     char telefono[16];
     char mail[31];

@@ -140,8 +140,8 @@ int autor_alta(Autor array[], int size, int* contadorID)                        
             array[posicion].isEmpty=0;
             //utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-            utn_getTexto("\ningrese nombre: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
-            utn_getTexto("\ningrese apellido: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                 //mensaje + cambiar campo apellido
+            utn_getTexto("\ningrese nombre: ","\nError",1,TEXT_SIZE_AUTOR,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
+            utn_getTexto("\ningrese apellido: ","\nError",1,TEXT_SIZE_AUTOR,1,array[posicion].apellido);                 //mensaje + cambiar campo apellido
             printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s",
                    posicion, array[posicion].idAutor,array[posicion].nombre,array[posicion].apellido);
             retorno=0;
@@ -251,10 +251,10 @@ int autor_modificar(Autor array[], int sizeArray)                               
                         //utn_getFloat("\n: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
                         break;
                     case 'C':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
+                        utn_getName("\n: ","\nError",1,TEXT_SIZE_AUTOR,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
                         break;
                     case 'D':
-                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);             //mensaje + cambiar campo apellido
+                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE_AUTOR,1,array[posicion].apellido);             //mensaje + cambiar campo apellido
                         break;
                     case 'S':
                         break;
@@ -350,29 +350,29 @@ int autor_listar(Autor array[], int size)                      //cambiar autor
 void autor_mock(Autor arrayAutor[], int size,int *contadorId)                      //cambiar autor
 {
 
-    arrayAutor[0].idAutor=0;
+    arrayAutor[0].idAutor=*contadorId ;
     arrayAutor[0].isEmpty=0;
     strcpy(arrayAutor[0].apellido,"CCCCC");
     strcpy(arrayAutor[0].nombre,"CCCCC");
-    *contadorId++;
+    *contadorId = *contadorId + 1;
 
-    arrayAutor[1].idAutor=1;
+    arrayAutor[1].idAutor=*contadorId ;
     arrayAutor[1].isEmpty=0;
     strcpy(arrayAutor[1].apellido,"AAAAA");
     strcpy(arrayAutor[1].nombre,"AAAAA");
-    *contadorId++;
+    *contadorId = *contadorId + 1;
 
-    arrayAutor[2].idAutor=2;
+    arrayAutor[2].idAutor=*contadorId ;
     arrayAutor[2].isEmpty=0;
     strcpy(arrayAutor[2].apellido,"BBBBB");
     strcpy(arrayAutor[2].nombre,"BBBBBB");
-    *contadorId++;
+    *contadorId = *contadorId + 1;
 
-    arrayAutor[3].idAutor=3;
+    arrayAutor[3].idAutor=*contadorId ;
     arrayAutor[3].isEmpty=0;
     strcpy(arrayAutor[3].apellido,"BBBBB");
     strcpy(arrayAutor[3].nombre,"BBBBBB");
-    *contadorId++;
+    *contadorId = *contadorId + 1;
 
 }
 

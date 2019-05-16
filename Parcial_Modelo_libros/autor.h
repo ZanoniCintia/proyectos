@@ -1,15 +1,15 @@
+#define TEXT_SIZE_AUTOR 31
+
 #ifndef AUTOR_H_INCLUDED
 #define AUTOR_H_INCLUDED
-
-#define TEXT_SIZE 31
 
 typedef struct
 {
     int idAutor;
     int isEmpty;
     //-----------------
-    char nombre[TEXT_SIZE];
-    char apellido[TEXT_SIZE];
+    char nombre[TEXT_SIZE_AUTOR];
+    char apellido[TEXT_SIZE_AUTOR];
 
 }Autor;
 

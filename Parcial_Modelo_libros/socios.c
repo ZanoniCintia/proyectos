@@ -166,8 +166,8 @@ int socios_alta(Socios array[], int size, int* contadorID)                      
             array[posicion].isEmpty=0;
             //utn_getUnsignedInt("\ningrese id ","\nError",1,sizeof(int),1,10,1,&array[posicion].idSocio);           //mensaje + cambiar campo varInt
     //mensaje + cambiar campo varFloat
-            utn_getName("\ningrese nombre: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);
-            utn_getName("\ningrese apellido: ","\nError",1,TEXT_SIZE,1,array[posicion].apellido);                    //mensaje + cambiar campo varString
+            utn_getName("\ningrese nombre: ","\nError",1,TEXT_SIZE_SOCIOS,1,array[posicion].nombre);
+            utn_getName("\ningrese apellido: ","\nError",1,TEXT_SIZE_SOCIOS,1,array[posicion].apellido);                    //mensaje + cambiar campo varString
             utn_getTelefono("\ningrese telefono: ","\nError",8,16,100000000,1874919423,1,array[posicion].telefono);
             utn_getEmail("\ningrese email : ","\nerror",1,31,1,array[posicion].mail);
             utn_getChar("\ningrese sexo f/m","\n error",'A','Z',1,&array[posicion].sexo);               //mensaje + cambiar campo varLongString

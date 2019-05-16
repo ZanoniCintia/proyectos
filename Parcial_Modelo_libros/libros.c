@@ -166,7 +166,7 @@ int libros_alta(Libros array[], int size, int* contadorID)                      
             array[posicion].isEmpty=0;
             utn_getUnsignedInt("\ningrese id Autor: ","\nError",1,sizeof(int),1,10,1,&array[posicion].idAutor);           //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
-            utn_getTexto("\ningrese titulo del libro: ","\nError",1,TEXT_SIZE,1,array[posicion].titulo);                      //mensaje + cambiar campo varString
+            utn_getTexto("\ningrese titulo del libro: ","\nError",1,TEXT_SIZE_LIBROS,1,array[posicion].titulo);                      //mensaje + cambiar campo varString
           //  utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
             printf("\n Posicion: %d\n ID: %d\n id autor: %d\n nombre del libro: %s\n ",
                    posicion, array[posicion].idLibros,array[posicion].idAutor,array[posicion].titulo);
@@ -277,7 +277,7 @@ int libros_modificar(Libros array[], int sizeArray)                             
                         utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idAutor);           //mensaje + cambiar campo varInt
                         break;
                     case 'B':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].titulo);                      //mensaje + cambiar campo varString
+                        utn_getName("\n: ","\nError",1,TEXT_SIZE_LIBROS,1,array[posicion].titulo);                      //mensaje + cambiar campo varString
                         break;
                     case 'S':
                         break;
@@ -373,27 +373,27 @@ int libros_listar(Libros array[], int size)                      //cambiar libro
 void libros_mock(Libros arrayLibros[], int size,int *contadorId)                      //cambiar libros
 {
     //*******************************************************************
-    arrayLibros[0].idLibros=0;
+    arrayLibros[0].idLibros=*contadorId;
     arrayLibros[0].isEmpty=0;
     arrayLibros[0].idAutor=0;
     strcpy(arrayLibros[0].titulo,"joe");
-    *contadorId++;
+    *contadorId=*contadorId + 1;
 
-    arrayLibros[1].idLibros=1;
+    arrayLibros[1].idLibros=*contadorId;
     arrayLibros[1].isEmpty=0;
     arrayLibros[1].idAutor=3;
     strcpy(arrayLibros[1].titulo,"margot");
-    *contadorId++;
+    *contadorId=*contadorId + 1;
 
-    arrayLibros[2].idLibros=2;
+    arrayLibros[2].idLibros=*contadorId;
     arrayLibros[2].isEmpty=0;
     arrayLibros[2].idAutor=5;
     strcpy(arrayLibros[2].titulo,"lolito");
-    *contadorId++;
+    *contadorId=*contadorId + 1;
 
-    arrayLibros[3].idLibros=3;
+    arrayLibros[3].idLibros=*contadorId;
     arrayLibros[3].isEmpty=0;
     arrayLibros[3].idAutor=1;
     strcpy(arrayLibros[3].titulo,"sol");
-    contadorId++;
+    //contadorId++;
 }

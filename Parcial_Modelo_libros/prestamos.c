@@ -271,7 +271,7 @@ int prestamos_modificar(Prestamos array[], int sizeArray)                       
         {
             do
             {       //copiar printf de alta
-                printf("\n Posicion: %d\n ID: %d\n id prestamo: %d\n id socio: %d\n id libro: %d",
+                printf("\n Posicion: %d\n id prestamo: %d\n id socio: %d\n id libro: %d",
                        posicion, array[posicion].idPrestamo,array[posicion].idSocio,array[posicion].idLibro);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
@@ -323,15 +323,15 @@ int prestamos_ordenarPorDobleCriterio(Prestamos array[],int size, int orderFirst
             flagSwap=0;
             for (i = 1; i < size-1; i++)
             {
-                if( ((strcmp(array[i].idLibro,array[i+1].idLibro) < 0) && orderFirst) ||
-                    ((strcmp(array[i].idLibro,array[i+1].idLibro) > 0) && !orderFirst) )
+                if( ((array[i].idLibro<array[i+1].idLibro) && orderFirst) ||
+                    ((array[i].idLibro>array[i+1].idLibro) && !orderFirst) )
                 {
                     flagSwap=1;
                     buffer = array[i];
                     array[i] = array[i+1];
                     array[i+1] = buffer;
                 }
-                else if(strcmp(array[i].idLibro,array[i+1].idLibro) == 0)
+                else if(array[i].idLibro==array[i+1].idLibro)
                 {
                     if( ((array[i].idSocio < array[i+1].idSocio) && orderSecond) ||
                         ((array[i].idSocio > array[i+1].idSocio) && !orderSecond) )
@@ -368,7 +368,7 @@ int prestamos_listar(Prestamos array[], int size)                      //cambiar
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n id prestamo: %d\n id socio: %d\n id libro: %d",
+                printf("\n id prestamo: %d\n id socio: %d\n id libro: %d",
                        array[i].idPrestamo,array[i].idSocio,array[i].idLibro);      //cambiar todos
         }
         retorno=0;
@@ -380,27 +380,27 @@ int prestamos_listar(Prestamos array[], int size)                      //cambiar
 void prestamos_mock(Prestamos arrayPrestamos[], int size,int *contadorId)                      //cambiar Prestamos
 {
     //*******************************************************************
-    arrayPrestamos[0].idPrestamo=0;
+    arrayPrestamos[0].idPrestamo=*contadorId;
     arrayPrestamos[0].isEmpty=0;
     arrayPrestamos[0].idSocio=0;
     arrayPrestamos[0].idLibro=0;
-    *contadorId++;
+    *contadorId=*contadorId + 1;
 
-    arrayPrestamos[1].idPrestamo=1;
+    arrayPrestamos[1].idPrestamo=*contadorId;
     arrayPrestamos[1].isEmpty=0;
     arrayPrestamos[1].idSocio=0;
     arrayPrestamos[1].idLibro=0;
-    *contadorId++;
+    *contadorId=*contadorId +1;
 
-    arrayPrestamos[2].idPrestamo=2;
+    arrayPrestamos[2].idPrestamo=*contadorId;
     arrayPrestamos[2].isEmpty=0;
     arrayPrestamos[2].idSocio=0;
     arrayPrestamos[2].idLibro=0;
-    *contadorId++;
+    *contadorId=*contadorId +1;
 
-    arrayPrestamos[3].idPrestamo=3;
+    arrayPrestamos[3].idPrestamo=*contadorId;
     arrayPrestamos[3].isEmpty=0;
     arrayPrestamos[3].idSocio=0;
     arrayPrestamos[3].idLibro=0;
-    contadorId++;
+    //contadorId++;
 }
