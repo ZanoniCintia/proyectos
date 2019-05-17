@@ -1,9 +1,14 @@
 # depslib dependency file v1.0
-1558044733 source:/home/alumno/zanoni/proyectos/zanoni_1h/main.c
+1558054207 source:/home/alumno/zanoni/proyectos/zanoni_1h/main.c
+	<string.h>
 	<stdio.h>
 	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+	"musico.h"
+	"instrumentos.h"
 
-1558047163 source:/home/alumno/zanoni/proyectos/zanoni_1h/orquesta.c
+1558053700 source:/home/alumno/zanoni/proyectos/zanoni_1h/orquesta.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -20,4 +25,23 @@
 	<string.h>
 	<ctype.h>
 	"utn.h"
+
+1558053687 source:/home/alumno/zanoni/proyectos/zanoni_1h/musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"instrumentos.h"
+
+1558049246 /home/alumno/zanoni/proyectos/zanoni_1h/musico.h
+
+1558054116 /home/alumno/zanoni/proyectos/zanoni_1h/instrumentos.h
+
+1558054116 source:/home/alumno/zanoni/proyectos/zanoni_1h/instrumentos.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"instrumentos.h"
 

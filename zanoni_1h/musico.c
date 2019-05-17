@@ -364,48 +364,48 @@ int musicos_listar(Musicos array[], int size)                      //cambiar soc
 }
 
 
-void musicos_mock(Musicos arrayMusicos[], int size,int *contadorId)                      //cambiar socios
+void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)                      //cambiar socios
 {
     //*******************************************************************
-    arrayMusicos[0].idMusico=*contadorId;
+    arrayMusicos[0].idMusico=*contadorIdMusico;
     arrayMusicos[0].idMusico=3;
     arrayMusicos[0].isEmpty=0;
     strcpy(arrayMusicos[0].nombre,"joe");
     strcpy(arrayMusicos[0].apellido,"morello");
     arrayMusicos[0].edad=25;
     arrayMusicos[0].idOrquesta=1;
-    arrayMusicos[0].idIntrumento=2;
-    *contadorId = *contadorId + 1;
+    arrayMusicos[0].idInstrumento=2;
+    *contadorIdMusico = *contadorIdMusico + 1;
 
-    arrayMusicos[1].idMusico=*contadorId;
+    arrayMusicos[1].idMusico=*contadorIdMusico;
     arrayMusicos[1].idMusico=3;
     arrayMusicos[1].isEmpty=0;
     strcpy(arrayMusicos[1].nombre,"gaston");
     strcpy(arrayMusicos[1].apellido,"picazo");
     arrayMusicos[1].edad=27;
     arrayMusicos[1].idOrquesta=3;
-    arrayMusicos[1].idIntrumento=2;
-    *contadorId = *contadorId + 1;
+    arrayMusicos[1].idInstrumento=2;
+    *contadorIdMusico = *contadorIdMusico + 1;
 
-    arrayMusicos[2].idMusico=*contadorId;
+    arrayMusicos[2].idMusico=*contadorIdMusico;
     arrayMusicos[2].idMusico=3;
     arrayMusicos[2].isEmpty=0;
     strcpy(arrayMusicos[2].nombre,"bryanna");
     strcpy(arrayMusicos[2].apellido,"barrios");
     arrayMusicos[2].edad=21;
     arrayMusicos[2].idOrquesta=2;
-    arrayMusicos[2].idIntrumento=2;
-    *contadorId = *contadorId + 1;
+    arrayMusicos[2].idInstrumento=2;
+    *contadorIdMusico= *contadorIdMusico + 1;
 
 
-    arrayMusicos[3].idMusico=*contadorId;
+    arrayMusicos[3].idMusico=*contadorIdMusico;
     arrayMusicos[3].idMusico=3;
     arrayMusicos[3].isEmpty=0;
     strcpy(arrayMusicos[3].nombre,"lolo");
     strcpy(arrayMusicos[3].apellido,"bello");
     arrayMusicos[3].edad=25;
     arrayMusicos[3].idOrquesta=3;
-    arrayMusicos[3].idIntrumento=2;
+    arrayMusicos[3].idInstrumento=2;
 
 
     //*contadorId = *contadorId + 1;

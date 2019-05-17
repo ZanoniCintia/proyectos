@@ -348,36 +348,36 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
 }
 
 
-void orquesta_mock(Orquesta arrayOrquesta[], int size,int *contadorId)                      //cambiar autor
+void orquesta_mock(Orquesta arrayOrquesta[], int size,int *contadorIdOrquesta)                      //cambiar autor
 {
 
-    arrayOrquesta[0].idOrquesta=*contadorId ;
+    arrayOrquesta[0].idOrquesta=*contadorIdOrquesta ;
     arrayOrquesta[0].isEmpty=0;
     strcpy(arrayOrquesta[0].nombre,"la mississippi");
     strcpy(arrayOrquesta[0].lugar,"varela");
     arrayOrquesta[0].tipo=1;
-    *contadorId = *contadorId + 1;
+    *contadorIdOrquesta = *contadorIdOrquesta + 1;
 
-    arrayOrquesta[0].idOrquesta=*contadorId ;
-    arrayOrquesta[0].isEmpty=0;
-    strcpy(arrayOrquesta[0].nombre,"margot");
-    strcpy(arrayOrquesta[0].lugar,"avellaneda");
-    arrayOrquesta[0].tipo=2;
-    *contadorId = *contadorId + 1;
+    arrayOrquesta[1].idOrquesta=*contadorIdOrquesta ;
+    arrayOrquesta[1].isEmpty=0;
+    strcpy(arrayOrquesta[1].nombre,"margot");
+    strcpy(arrayOrquesta[1].lugar,"avellaneda");
+    arrayOrquesta[1].tipo=2;
+    *contadorIdOrquesta = *contadorIdOrquesta + 1;
 
-    arrayOrquesta[0].idOrquesta=*contadorId ;
-    arrayOrquesta[0].isEmpty=0;
-    strcpy(arrayOrquesta[0].nombre,"picazo");
-    strcpy(arrayOrquesta[0].lugar,"caba");
-    arrayOrquesta[0].tipo=3;
-    *contadorId = *contadorId + 1;
+    arrayOrquesta[2].idOrquesta=*contadorIdOrquesta ;
+    arrayOrquesta[2].isEmpty=0;
+    strcpy(arrayOrquesta[2].nombre,"picazo");
+    strcpy(arrayOrquesta[2].lugar,"caba");
+    arrayOrquesta[2].tipo=3;
+    *contadorIdOrquesta = *contadorIdOrquesta+ 1;
 
-    arrayOrquesta[0].idOrquesta=*contadorId ;
-    arrayOrquesta[0].isEmpty=0;
-    strcpy(arrayOrquesta[0].nombre,"lolo");
-    strcpy(arrayOrquesta[0].lugar,"techo");
-    arrayOrquesta[0].tipo=1;
-    *contadorId = *contadorId + 1;
+    arrayOrquesta[3].idOrquesta=*contadorIdOrquesta ;
+    arrayOrquesta[3].isEmpty=0;
+    strcpy(arrayOrquesta[3].nombre,"lolo");
+    strcpy(arrayOrquesta[3].lugar,"techo");
+    arrayOrquesta[3].tipo=1;
+
 
 }
 
