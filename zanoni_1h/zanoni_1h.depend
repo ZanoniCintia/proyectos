@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1558044733 source:/home/alumno/zanoni/proyectos/zanoni_1h/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1558047163 source:/home/alumno/zanoni/proyectos/zanoni_1h/orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1558042777 /home/alumno/zanoni/proyectos/zanoni_1h/utn.h
+
+1558046809 /home/alumno/zanoni/proyectos/zanoni_1h/orquesta.h
+
+1558042777 source:/home/alumno/zanoni/proyectos/zanoni_1h/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
