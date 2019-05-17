@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1558054207 source:/home/alumno/zanoni/proyectos/zanoni_1h/main.c
+1558054463 source:/home/alumno/zanoni/proyectos/zanoni_1h/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

@@ -53,6 +53,7 @@ int main()
                     break;
 
                 case 3: //Baja
+                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
                     orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
                     break;
 
