@@ -8,6 +8,8 @@ Persona* Per_new(void)
 {
     return (Persona*) malloc(sizeof(Persona));
 }
+
+
 Persona* Per_newStr(char* id,char* nombre, char* apellido, char* estado)
 {
     Persona* retorno=NULL;
@@ -17,8 +19,8 @@ Persona* Per_newStr(char* id,char* nombre, char* apellido, char* estado)
         pAuxPersona=Per_new();
         if(pAuxPersona !=NULL)
         {
-            if(!Per_setNombre(pAuxPersona,nombre)&& !Per_setApellido(pAuxPersona,apellido)&&
-               !Per_setIdStr(pAuxPersona,id) && !Per_setEstadoStr(pAuxPersona,estado))
+            if(( !Per_setNombre(pAuxPersona,nombre))&& (!Per_setApellido(pAuxPersona,apellido))&&
+              ( !Per_setIdStr(pAuxPersona,id))&& (!Per_setEstadoStr(pAuxPersona,estado)))
             {
                 retorno=pAuxPersona;
             }
@@ -66,7 +68,7 @@ int Per_getId(Persona* this, int* resultado)
     return retorno;
 }
 
-int Per_setIdString(Persona* this, char* id)
+int Per_setIdStr(Persona* this, char* id)
 {
     int retorno = -1;
     if(this != NULL && id != NULL)
@@ -179,7 +181,7 @@ int Per_getEstadoStr(Persona* this, char *estado)
     int buffer;
     if(this != NULL && estado !=NULL)
     {
-        Persona_getId(this,&buffer);
+        Per_getId(this,&buffer);
         sprintf(estado,"%d",buffer);
 
     }

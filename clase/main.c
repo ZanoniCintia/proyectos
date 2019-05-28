@@ -27,14 +27,14 @@ int main()
             printf("\n El id es %d",auxInt);
 
         }
-        if(!Per_setNombre(pArrayPersona[indiceActual],"Juan"))
+        if(!Per_setNombre(pArrayPersona[indiceActual],"Matias"))
         {
 
            Per_getNombre(pArrayPersona[indiceActual], auxNombre);
             printf("\n El nombre es %s",auxNombre);
         }
 
-       if(!Per_setApellido(pArrayPersona[indiceActual],auxApellido))
+       if(!Per_setApellido(pArrayPersona[indiceActual],"Moll"))
         {
             Per_getApellido(pArrayPersona[indiceActual], auxApellido);
             printf("\n El apellido es %s",auxApellido);

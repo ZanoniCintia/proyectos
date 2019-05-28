@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1559080411 source:/home/alumno/zanoni/proyectos/clase/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+	"utn.h"
+
+1559079746 /home/alumno/zanoni/proyectos/clase/persona.h
+
+1559078602 /home/alumno/zanoni/proyectos/clase/utn.h
+
+1559080146 source:/home/alumno/zanoni/proyectos/clase/persona.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+	"utn.h"
+
+1559079746 source:/home/alumno/zanoni/proyectos/clase/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+

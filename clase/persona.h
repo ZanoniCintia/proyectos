@@ -27,3 +27,4 @@ int Per_getIdStr(Persona* this,char *id);
 int Per_setIdStr(Persona* this, char* id);
 int Per_setEstadoStr(Persona* this, char *estado);
 int Per_getEstadoStr(Persona* this, char *estado);
+
