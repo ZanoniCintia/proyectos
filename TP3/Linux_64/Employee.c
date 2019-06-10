@@ -16,12 +16,16 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     if(idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL &&  sueldo != NULL && pEmployee != NULL)
     {
         if(isValidNumber(idStr) && isValidNumber(horasTrabajadasStr) && isValidNumber(sueldo))
-            if(employee_setId(pEmployee,atoi(idStr)) && employee_setNombre(pEmployee,nombreStr)
-                && employee_setHorasTrabajadas(pEmployee,atoi(horasTrabajadasStr)) && employee_setSueldo(pEmployee,atoi(sueldo)))
-                {
-                    pEmployee=NULL;
-
-                }
+            {
+                if( employee_setId(pEmployee,atoi(idStr))
+                    || employee_setNombre(pEmployee,nombreStr)
+                    || employee_setHorasTrabajadas(pEmployee,atoi(horasTrabajadasStr))
+                    || employee_setSueldo(pEmployee,atoi(sueldo))
+                   )
+                    {
+                        pEmployee = NULL;
+                    }
+            }
     }
 
     return pEmployee;
@@ -78,7 +82,7 @@ int employee_getNombre(Employee* this,char* nombre)
     int retorno = -1;
     if(this != NULL && nombre != NULL)
     {
-        strncpy(nombre,this->nombre,sizeof(this->nombre));
+        strcpy(nombre,this->nombre);//,sizeof(this->nombre));
         retorno = 0;
     }
     return retorno;
@@ -86,7 +90,7 @@ int employee_getNombre(Employee* this,char* nombre)
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
     int retorno=-1;
-    if(this != NULL && horasTrabajadas >29 && horasTrabajadas<43)
+    if(this != NULL )//&& isValidNumber(horasTrabajadas))
     {
         this->horasTrabajadas=horasTrabajadas;
         retorno=0;
@@ -108,7 +112,7 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 int employee_setSueldo(Employee* this,int sueldo)
 {
     int retorno = -1;
-    if(this != NULL && sueldo> 0 && sueldo<50000)
+    if(this != NULL && sueldo> 0 && sueldo<=50000)
     {
         this->sueldo = sueldo;
         retorno = 0;

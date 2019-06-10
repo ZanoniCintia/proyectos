@@ -12,7 +12,9 @@
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
+
     int retorno=-1;
+    /*
     int cantidad;
     char bufferId[4096];
     char bufferNombre[4096];
@@ -22,7 +24,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 
     if(pFile !=NULL && pArrayListEmployee != NULL)
     {
-        //pFile = fopen("data.csv","r");
         do
         {
 
@@ -33,14 +34,14 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
                 if(pEmployee !=NULL)
                 {
                     ll_add(pArrayListEmployee,pEmployee);
-                    retorno = 1;
+                    retorno = 0;
                 }
             }
         }while(!feof(pFile));
 
         fclose(pFile);
     }
-
+*/
     return retorno;
 }
 

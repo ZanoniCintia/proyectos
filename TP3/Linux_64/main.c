@@ -24,7 +24,12 @@ int main()
 {
     FILE* pFILE=fopen("data.csv","r");
     Employee* pAux;
-    char nombre[30];
+    char nombre[300];
+    int id;
+    int horasTrabajadas;
+    int sueldo;
+
+
    // int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     /*do{
@@ -38,11 +43,16 @@ int main()
     parser_EmployeeFromText(pFILE,listaEmpleados);
     for(int i =0;i<ll_len(listaEmpleados);i++)
     {
-        pAux=ll_get(listaEmpleados,i);
-        employee_getNombre(pAux,nombre);
-        printf("%s\n",nombre);
-
-
+        pAux=(Employee*)ll_get(listaEmpleados,i);
+        if(pAux != NULL)
+        {
+            employee_getId(pAux,&id);
+            employee_getHorasTrabajadas(pAux,&horasTrabajadas);
+            employee_getSueldo(pAux,&sueldo);
+            employee_getNombre(pAux,nombre);
+            printf("ID: %d  Nombre: %s -- Horas trabajadas: %d -- Sueldo: %d\n",id,nombre,horasTrabajadas,sueldo);
+        }
     }
+    //fclose(pFILE);
     return 0;
 }

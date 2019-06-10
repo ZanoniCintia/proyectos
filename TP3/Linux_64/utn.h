@@ -1,13 +1,15 @@
+int getInt(char *mensaje, char *mensajeError, int minimo,int maximo,int reintentos, char *resultado);
+int isValidInt(int numero, int maximo, int minimo);
 int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado);
 
 int utn_getName(char* msg,char* msgError,int min,int max,int reintentos,char* resultado);
 int isValidName(char* stringRecibido);
 
-int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int min,int max,int reintentos,int* input);
+//int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int min,int max,int reintentos,int* input);
 int isValidNumber(char* stringRecibido);
 
-int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, int* input);
-int isValidSignedNumber(char* stringRecibido);
+//int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, int* input);
+//int isValidSignedNumber(char* stringRecibido);
 
 int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, int max, int reintentos, float* input);
 int isValidFloatNumber(char* stringRecibido);
@@ -32,3 +34,6 @@ int isValidAlphanumeric(char* stringRecibido);
 
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado);
 int isValidChar(char charRecibido);
+
+int getInt(char *mensaje, char *mensajeError, int minimo,int maximo,int reintentos,char *resultado);
+int isValidInt(int numero, int maximo, int minimo);

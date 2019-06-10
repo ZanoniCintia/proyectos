@@ -97,3 +97,48 @@
 
 1533133022 /home/alumno/zanoni/proyectos/TP3/Linux_64/parser.h
 
+1560189509 source:/home/cintia/zanoni/proyectos/TP3/Linux_64/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+
+1559754861 /home/cintia/zanoni/proyectos/TP3/Linux_64/LinkedList.h
+
+1559754861 /home/cintia/zanoni/proyectos/TP3/Linux_64/Employee.h
+
+1559851460 source:/home/cintia/zanoni/proyectos/TP3/Linux_64/Employee.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Employee.h"
+	"utn.h"
+
+1560188894 /home/cintia/zanoni/proyectos/TP3/Linux_64/utn.h
+
+1559754861 source:/home/cintia/zanoni/proyectos/TP3/Linux_64/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1560189530 source:/home/cintia/zanoni/proyectos/TP3/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1559852028 source:/home/cintia/zanoni/proyectos/TP3/Linux_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"parser.h"
+
+1560003798 /home/cintia/zanoni/proyectos/TP3/Linux_64/Controller.h
+
+1559754861 /home/cintia/zanoni/proyectos/TP3/Linux_64/parser.h
+
