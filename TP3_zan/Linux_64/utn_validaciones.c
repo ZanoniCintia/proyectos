@@ -112,7 +112,7 @@ int isValidFloat(char* numero, float minimo,float maximo)
 }
 int getInt(char* msg,char* msgError,int minimo,int maximo,int reintentos,char *resultado)
 {
-    char buffer[4096];
+    int buffer;
 
     int retorno = -1;
 
@@ -120,15 +120,13 @@ int getInt(char* msg,char* msgError,int minimo,int maximo,int reintentos,char *r
     {
         do
         {
-            if(!getString(msg,msgError,minimo,maximo,reintentos,buffer))
+            printf("%s",msg);
+            scanf("%d",&buffer);
+            if(isValidInt(buffer,minimo,maximo))
             {
-                if(isValidInt(buffer)==1)
-                {
-                    strncpy(resultado,buffer,maximo);
-                    retorno=0;
-                    break;
-                }
-
+                *resultado=buffer;
+                retorno =0;
+                break;
             }else{
 
                 printf("%s",msgError);
@@ -140,23 +138,18 @@ int getInt(char* msg,char* msgError,int minimo,int maximo,int reintentos,char *r
 
 }
 
-int isValidInt(char* cadena)
+int isValidInt(int numero,int minimo,int maximo)
 {
-     int retorno=1;
-    int i;
-    for(i=0;cadena[i]!='\0';i++)
+    if(numero>=minimo && numero<=maximo)
     {
-        if(cadena[i]<'0' || cadena[i]>'9')
-        {
-            retorno=0;
-            break;
-        }
+        return 1;
     }
-    return retorno;
+        return 0;
+
 }
 int getEntero(char* msg,char* msgError,int minimo,int maximo,int reintentos,int *resultado)
 {
-    char buffer[4096];
+    int buffer;
 
     int retorno = -1;
 
@@ -165,10 +158,10 @@ int getEntero(char* msg,char* msgError,int minimo,int maximo,int reintentos,int 
         do
         {
             printf("%s",msg);
-            scanf("%s",buffer);
-            if(isValidEntero(buffer))
+            scanf("%d",&buffer);
+            if(isValidInt(buffer,minimo,maximo))
             {
-                *resultado=atoi(buffer);
+                *resultado=buffer;
                 retorno =0;
                 break;
             }else{

@@ -3,8 +3,7 @@
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
-#include "utn_validaciones.h"
-int idMaxArray(LinkedList* pArrayEmpleado);
+
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  *
  * \param path char*
@@ -23,11 +22,9 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
         {
             if(!parser_EmployeeFromText(fAux,pArrayListEmployee))
             {
-                printf("El archivo se cargo existosamente en modo texto!");
                 retorno = 0;
             }
         }
-        fclose(fAux);
     }
     return retorno;
 }
@@ -41,35 +38,9 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-   /* int retorno = -1;
-    FILE* pFile = NULL;
-    Employee pAuxiliar;
-    Employee* employee;
-    if(path != NULL && pArrayListEmployee != NULL)
-    {
-        pFile = fopen(path, "r");
-        if(pFile != NULL)
-        {
-            do
-            {
-                fread(&pAuxiliar,sizeof(Employee),1,pFile);
-                employee = employee_newFileBinario(pAuxiliar);
-                if(employee != NULL)
-                {
-                    ll_add(pArrayListEmployee,employee);
-                }else
-                    {
-                        employee_delete(employee);
-                    }
-            }while(!feof(pFile));
-            retorno=0;
-        }
-        fclose(pFile);
-    }
-    return retorno;*/
+
+
     return 1;
-
-
 }
 
 /** \brief Alta de empleados
@@ -81,34 +52,8 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    char nombre[51];
-    char horasTrabajadas[20];
-    char sueldo[20];
-    char idTex[20];
-    int id;
-    int retorno=-1;
-    Employee* pAuxiliar;
 
-
-    if(pArrayListEmployee!=NULL)
-    {
-        id=idMaxArray(pArrayListEmployee)+1;
-        sprintf(idTex,"%d",id);
-        if( !getName("\n Ingrese nombre de empleado: ", "\n Error",1,51,1,nombre) &&
-            !getInt("\n Ingrese horas trabajadas: ", "\n Error",1,500,1,horasTrabajadas) &&
-            !getInt("\n Ingrese sueldo: ", "\n Error",1,500000,1,sueldo))
-        {
-            pAuxiliar= employee_newParametros(idTex,nombre,horasTrabajadas,sueldo);
-            if(pAuxiliar != NULL)
-            {
-                ll_add(pArrayListEmployee,pAuxiliar);
-                retorno = 0;
-            }
-        }
-
-    }
-
-  return retorno;
+  return 1;
 }
 int idMaxArray(LinkedList* pArrayEmpleado)
 {
