@@ -6,14 +6,14 @@
 #include "utn_validaciones.h"
 
 
-Employee* Emp_new(void)
+Employee* employee_new(void)
 {
     return (Employee*) malloc(sizeof(Employee));
 }
 
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldo)
 {
-    Employee* pEmployee=Emp_new();
+    Employee* pEmployee=employee_new();
     if(idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL &&  sueldo != NULL && pEmployee != NULL)
     {
         if(isValidEntero(idStr) && isValidEntero(horasTrabajadasStr) && isValidEntero(sueldo))
@@ -31,6 +31,24 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
     return pEmployee;
 }
+Employee* employee_newFileBinario(Employee empleado)
+{
+    Employee* retorno = NULL;
+    Employee* pAuxEmployee = employee_new();
+    if(pAuxEmployee != NULL)
+    {
+        if(employee_setId(pAuxEmployee,empleado.id)||employee_setNombre(pAuxEmployee,empleado.nombre)
+            ||employee_setHorasTrabajadas(pAuxEmployee,empleado.horasTrabajadas)||employee_setSueldo(pAuxEmployee,empleado.sueldo))
+        {
+            employee_delete(pAuxEmployee);
+        }else
+            {
+                retorno = pAuxEmployee;
+            }
+    }
+    return retorno;
+}
+
 
 void employee_delete(Employee* this)
 {

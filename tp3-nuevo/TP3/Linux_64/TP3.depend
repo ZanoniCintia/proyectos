@@ -96,7 +96,7 @@
 	<stdlib.h>
 	"utn_validaciones.h"
 
-1560458266 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.c
+1560535997 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -104,34 +104,34 @@
 	"parser.h"
 	"utn_validaciones.h"
 
-1560442274 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/LinkedList.h
+1560534059 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/LinkedList.h
 
-1560442274 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.h
+1560534746 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.h
 
-1560442274 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.h
+1560534059 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.h
 
-1560442274 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.c
+1560535739 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"Employee.h"
 	"utn_validaciones.h"
 
-1560459178 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.h
+1560534059 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.h
 
-1560442274 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.c
+1560534746 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
 	"Employee.h"
 
-1560459513 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.c
+1560534059 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.c
 	<string.h>
 	<stdio_ext.h>
 	<stdlib.h>
 	"utn_validaciones.h"
 
-1560451652 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/main.c
+1560535748 source:/home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -139,5 +139,5 @@
 	"Employee.h"
 	"utn_validaciones.h"
 
-1560442274 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.h
+1560534059 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.h
 

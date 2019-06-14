@@ -41,35 +41,18 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-   /* int retorno = -1;
+    int retorno = -1;
     FILE* pFile = NULL;
-    Employee pAuxiliar;
-    Employee* employee;
     if(path != NULL && pArrayListEmployee != NULL)
     {
-        pFile = fopen(path, "r");
-        if(pFile != NULL)
+        pFile = fopen(path, "rb");
+        if(pFile != NULL && !parser_EmployeeFromBinary(pFile,pArrayListEmployee))
         {
-            do
-            {
-                fread(&pAuxiliar,sizeof(Employee),1,pFile);
-                employee = employee_newFileBinario(pAuxiliar);
-                if(employee != NULL)
-                {
-                    ll_add(pArrayListEmployee,employee);
-                }else
-                    {
-                        employee_delete(employee);
-                    }
-            }while(!feof(pFile));
-            retorno=0;
+            printf("El archivo se cargo existosamente en modo binario!");
+            retorno = 0;
         }
-        fclose(pFile);
     }
-    return retorno;*/
-    return 1;
-
-
+    return retorno;
 }
 
 /** \brief Alta de empleados
@@ -94,9 +77,9 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     {
         id=idMaxArray(pArrayListEmployee)+1;
         sprintf(idTex,"%d",id);
-        if( !getName("\n Ingrese nombre de empleado: ", "\n Error",1,51,1,nombre) &&
-            !getInt("\n Ingrese horas trabajadas: ", "\n Error",1,500,1,horasTrabajadas) &&
-            !getInt("\n Ingrese sueldo: ", "\n Error",1,500000,1,sueldo))
+        if( getName("\n Ingrese nombre de empleado: ", "\n Error",1,51,1,nombre) &&
+            getInt("\n Ingrese horas trabajadas: ", "\n Error",1,500,1,horasTrabajadas) &&
+            getInt("\n Ingrese sueldo: ", "\n Error",1,500000,1,sueldo))
         {
             pAuxiliar= employee_newParametros(idTex,nombre,horasTrabajadas,sueldo);
             if(pAuxiliar != NULL)
@@ -166,6 +149,28 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
+    LinkedList* listaEmpleados;// = ll_newLinkedList();
+    char nombre[300];
+    int id;
+    int horasTrabajadas;
+    int sueldo;
+    Employee* pAux;
+
+    for(int i =0;i<ll_len(listaEmpleados);i++)
+    {
+            printf("I:%d - ",i);
+
+            pAux=(Employee*)ll_get(listaEmpleados,i);
+            if(pAux != NULL)
+            {
+                employee_getId(pAux,&id);
+                employee_getHorasTrabajadas(pAux,&horasTrabajadas);
+                employee_getSueldo(pAux,&sueldo);
+                employee_getNombre(pAux,nombre);
+                printf("ID: %d  Nombre: %s -- Horas trabajadas: %d -- Sueldo: %d\n",id,nombre,horasTrabajadas,sueldo);
+            }
+    }
+                //printf("Menu 6 -----
     return 1;
 }
 
