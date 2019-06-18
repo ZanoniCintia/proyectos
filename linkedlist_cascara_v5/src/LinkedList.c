@@ -508,8 +508,101 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux =-1;
+    int flag=1;
+    void* pElementoUno;
+    void* pElementoDos;
+    int i;
+
+    if(this != NULL && pFunc != NULL && (order == 0 || order==1))
+    {
+        while(flag)
+        {
+            flag=0;
+            for(i=0;i<ll_len(this)-1;i++)
+            {
+                pElementoUno=ll_get(this,i);
+                pElementoDos=ll_get(this,i+1);
+                if((pFunc(pElementoUno,pElementoDos)>0 && order==1) ||
+                   (pFunc(pElementoUno,pElementoDos)<0 && order==0))
+                {
+                    ll_set(this,i,pElementoDos);
+                    ll_set(this,i+1,pElementoUno);
+                    flag=1;
+                }
+
+            }
+        }
+        returnAux=0;
+    }
+
 
     return returnAux;
+}
 
+int ll_map(LinkedList* this, int (*pFunc)(void*))
+{
+    int returnAux =-1;
+    int i;
+    void* auxiliarElemento;
+    if(this!=NULL)
+    {
+        for(i=0;i<ll_len(this);i++)
+        {
+           auxiliarElemento= ll_get(this,i);
+           pFunc(auxiliarElemento);
+
+        }
+      returnAux = 0;
+    }
+
+
+    return returnAux;
+}
+
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
+{
+    LinkedList* returnAux = ll_newLinkedList();
+    int i;
+    void* auxiliarElemento;
+
+    if(this!=NULL)
+    {
+        for(i=0;i<ll_len(this);i++)
+        {
+            auxiliarElemento=ll_get(this,i);
+            if(pFunc(auxiliarElemento)==1)
+            {
+                ll_add(returnAux,auxiliarElemento);
+
+            }
+
+        }
+
+    }
+
+
+    return returnAux;
+}
+
+int ll_reduce(LinkedList* this, int (*pFunc)(void*))
+{
+    int returnAux =-1;
+    int i;
+    void* auxiliarElemento;
+    if(this!=NULL)
+    {
+
+        for(i=0;i<ll_len(this);i++)
+        {
+            auxiliarElemento=ll_get(this,i);
+            if(pFunc(auxiliarElemento))
+            {
+                ll_remove(this,i);
+                i--;
+            }
+        }
+        returnAux=0;
+    }
+    return returnAux;
 }
 
