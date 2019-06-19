@@ -141,3 +141,48 @@
 
 1560534059 /home/cintia/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.h
 
+1560893613 source:/home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn_validaciones.h"
+
+1560893613 /home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/LinkedList.h
+
+1560893613 /home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.h
+
+1560893613 /home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.h
+
+1560893613 /home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.h
+
+1560893613 source:/home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Employee.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Employee.h"
+	"utn_validaciones.h"
+
+1560893613 source:/home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn_validaciones.h"
+
+1560893613 /home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/Controller.h
+
+1560893613 source:/home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560893613 source:/home/alumno/zanoni/proyectos/tp3-nuevo/TP3/Linux_64/utn_validaciones.c
+	<string.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	"utn_validaciones.h"
+
