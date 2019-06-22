@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1561169655 source:/home/cintia/zanoni/proyectos/final/Clientes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Clientes.h"
+	"utn_validaciones.h"
+
+1561163292 /home/cintia/zanoni/proyectos/final/Clientes.h
+
+1561139124 /home/cintia/zanoni/proyectos/final/utn_validaciones.h
+
+1561175779 source:/home/cintia/zanoni/proyectos/final/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Clientes.h"
+	"Ventas.h"
+	"parser.h"
+	"utn_validaciones.h"
+
+1561139124 /home/cintia/zanoni/proyectos/final/LinkedList.h
+
+1561173139 /home/cintia/zanoni/proyectos/final/parser.h
+
+1561139124 source:/home/cintia/zanoni/proyectos/final/LinkedList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561175779 source:/home/cintia/zanoni/proyectos/final/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"utn_validaciones.h"
+
+1561175194 /home/cintia/zanoni/proyectos/final/Controller.h
+
+1561175322 source:/home/cintia/zanoni/proyectos/final/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Clientes.h"
+	"Ventas.h"
+
+1561139124 source:/home/cintia/zanoni/proyectos/final/utn_validaciones.c
+	<string.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	"utn_validaciones.h"
+
+1561175214 /home/cintia/zanoni/proyectos/final/Ventas.h
+
+1561175485 source:/home/cintia/zanoni/proyectos/final/Ventas.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Clientes.h"
+	"Ventas.h"
+	"utn_validaciones.h"
+
