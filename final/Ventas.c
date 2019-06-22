@@ -12,18 +12,19 @@ Ventas* ventas_new(void)
     return (Ventas*) malloc(sizeof(Ventas));
 }
 
-Ventas* ventas_newParametros(char* idVentasStr,char* codigoProductoStr,char* cantidadDeProductosStr,char* idClientesStr)
+Ventas* ventas_newParametros(char* idVentasStr,char* codigoProductoStr,char* cantidadDeProductosStr,char* idClientesStr,char* precioStr)
 {
     Ventas* retorno = NULL;
     Ventas* pVentas=ventas_new();
-    if(idVentasStr != NULL && codigoProductoStr != NULL && cantidadDeProductosStr != NULL &&  idClientesStr != NULL)
+    if(idVentasStr != NULL && codigoProductoStr != NULL && cantidadDeProductosStr != NULL &&  idClientesStr != NULL &&  precioStr != NULL)
     {
-        if(isValidEntero(idVentasStr) && isValidEntero(codigoProductoStr) && isValidEntero(cantidadDeProductosStr) && isValidEntero(idClientesStr))
+        if(isValidEntero(idVentasStr) && isValidEntero(codigoProductoStr) && isValidEntero(cantidadDeProductosStr) && isValidEntero(idClientesStr) && isValidEntero(precioStr))
         {
                 if( ventas_setId(pVentas,atoi(idVentasStr))
                     || ventas_setCodigoProducto(pVentas,atoi(codigoProductoStr))
                     || ventas_setCantidadDeProductos(pVentas,atoi(cantidadDeProductosStr))
                     || ventas_setIdClientes(pVentas,atoi(idClientesStr))
+                    || ventas_setPrecio(pVentas,atof(precioStr))
                    )
                     {
                         ventas_delete(pVentas);
@@ -112,6 +113,31 @@ int ventas_getIdClientes(Ventas* this,int* idClientes)
     return retorno;
 
 }
+
+int ventas_setPrecio(Ventas* this,int precio)
+{
+     int retorno = -1;
+    if(this != NULL && precio >= 0)
+    {
+        this->precio = precio;
+        retorno = 0;
+    }
+    return retorno;
+
+}
+
+int ventas_getPrecio(Ventas* this,int* precio)
+{
+    int retorno = -1;
+    if(this != NULL && precio != NULL)
+    {
+        *precio = this->precio;
+        retorno = 0;
+    }
+    return retorno;
+
+}
+
 
 
 int ventas_setCodigoProducto(Ventas* this,int codigo)

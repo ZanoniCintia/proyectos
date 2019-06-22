@@ -50,15 +50,16 @@ int parser_VentasFromText(FILE* pFile , LinkedList* pArrayListVentas)
     char bufferCodigo[4096];
     char bufferCantidad[4096];
     char bufferidClientes[4096];
+    char bufferPrecio[4096];
     Ventas* pVentas;
     if(pFile !=NULL && pArrayListVentas != NULL)
     {
         do
         {
-            cantidad=fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",bufferIdVentas,bufferCodigo,bufferCantidad,bufferidClientes);
+            cantidad=fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",bufferIdVentas,bufferCodigo,bufferCantidad,bufferidClientes,bufferPrecio);
             if(cantidad==4)
             {
-                pVentas=ventas_newParametros(bufferIdVentas,bufferCodigo,bufferCantidad,bufferidClientes);
+                pVentas=ventas_newParametros(bufferIdVentas,bufferCodigo,bufferCantidad,bufferidClientes,bufferPrecio);
                 if(pVentas !=NULL)
                 {
                     ll_add(pArrayListVentas,pVentas);

@@ -6,10 +6,11 @@ typedef struct
     int codigo;
     int cantidad;
     int idVentas;
+    float precio;
 }Ventas;
 
 Ventas* ventas_new();
-Ventas* ventas_newParametros(char* idVentasStr,char* codigoProductoStr,char* cantidadDeProductosStr,char* idClientesStr);
+Ventas* ventas_newParametros(char* idVentasStr,char* codigoProductoStr,char* cantidadDeProductosStr,char* idClientesStr,char* precioStr);
 Ventas* ventas_newFileBinario(Ventas ventas);
 
 void ventas_delete();
@@ -25,6 +26,9 @@ int ventas_getCantidadDeProductos(Ventas* this,int* cantidadDeProductos);
 
 int ventas_setIdClientes(Ventas* this,int idClientes);
 int ventas_getIdClientes(Ventas* this,int* idClientes);
+
+int ventas_setPrecio(Ventas* this,int precio);
+int ventas_getPrecio(Ventas* this,int* precio);
 
 int ventas_comparacionNombre(void* this1, void* this2);
 

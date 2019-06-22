@@ -116,38 +116,63 @@ int idMaxArray(LinkedList* pArrayClientes)
                 idMax = idAux;
             }
         }
-    }
     retorno = idMax;
+
+    }
+
     return retorno;
 }
 
-int controller_addVentas(LinkedList* pArrayListVentas)
+int controller_addVentas(LinkedList* pArrayListVentas,LinkedList* pArrayClientes)
 {
     char codigo[50];
     char cantidad[20];
     char idClientes[20];
+    char bufferPrecio[25];
     char idTex[20];
     int id;
+    float precio;
+    int codigoOpcion=0;
     int retorno=-1;
     Ventas* pAuxiliar;
 
 
-    if(pArrayListVentas!=NULL)
+    if(pArrayListVentas!=NULL && pArrayClientes != NULL)
     {
         id=idMaxArrayVentas(pArrayListVentas)+1;
         sprintf(idTex,"%d",id);
 
         if(
             !getInt("\n Ingrese id del cliente: ", "\n Error",1,50,1,idClientes) &&
-            !getInt("\n Ingrese codigo de producto: ", "\n Error",1,50,1,codigo) &&
+            !getInt("\n Codigo de producto: \n1000-TV_LG_32-$8999.99\n1001-PS4-$12999.99\n1002-IPHONE7-$19480.99\nIngrese codigo : ", "\n Error",1,50,1,codigo) &&
             !getInt("\n Ingrese cantidad: ", "\n Error",1,21,1,cantidad))
         {
-            pAuxiliar= ventas_newParametros(idTex,idClientes,codigo,cantidad);
-            if(pAuxiliar != NULL)
+            pAuxiliar= ventas_newParametros(idTex,codigo,cantidad,idClientes,bufferPrecio);
+            switch(codigoOpcion)
             {
+                case 1000:
+                    ventas_setCodigoProducto(pAuxiliar,codigo);
+                    ventas_setCantidadDeProductos(pAuxiliar,cantidad);
+                    precio=8999.99;
+                    ventas_setPrecio(pAuxiliar,bufferPrecio);
+                    break;
+                case 1001:
+                    ventas_setCodigoProducto(pAuxiliar,codigo);
+                    ventas_setCantidadDeProductos(pAuxiliar,cantidad);
+                    precio=12999.99;
+                    ventas_setPrecio(pAuxiliar,bufferPrecio);
+                    break;
+                 case 1002:
+                    ventas_setCodigoProducto(pAuxiliar,codigo);
+                    ventas_setCantidadDeProductos(pAuxiliar,cantidad);
+                    precio=19480.99;
+                    ventas_setPrecio(pAuxiliar,bufferPrecio);
+                    break;
+                }
                 ll_add(pArrayListVentas,pAuxiliar);
+                printf("La venta se cargo exitosamente\n");
                 retorno = 0;
-            }
+
         }
 
     }
@@ -172,8 +197,9 @@ int idMaxArrayVentas(LinkedList* pArrayVentas)
                 idMax = idAux;
             }
         }
-    }
     retorno = idMax;
+    }
+
     return retorno;
 }
 int buscarPorId(LinkedList* pArrayClientes, int id)
@@ -275,13 +301,14 @@ int controller_ListVentas(LinkedList* pArrayListVentas)
     int codigo;
     int id;
     int cantidad;
+    float precio;
     int retorno = -1;
     Ventas* pAux;
     if(pArrayListVentas != NULL)
     {
         for(int i =0; i<ll_len(pArrayListVentas); i++)
         {
-            //printf("I:%d - ",i);
+          //  printf("I:%d - ",i);
             pAux=(Ventas*)ll_get(pArrayListVentas,i);
             if(pAux != NULL)
             {
@@ -289,7 +316,8 @@ int controller_ListVentas(LinkedList* pArrayListVentas)
                 ventas_getCodigoProducto(pAux,&codigo);
                 ventas_getCantidadDeProductos(pAux,&cantidad);
                 ventas_getIdClientes(pAux,&idClientes);
-                printf("ID: %d  CODIGO: %d -- CANTIDAD: %d -- ID CLIENTE: %d\n",id,codigo,cantidad,idClientes);
+                ventas_getPrecio(pAux,&precio);
+                printf("ID: %d  CODIGO: %d -- CANTIDAD: %d -- ID CLIENTE: %d -- PRECIO: %f\n",id,codigo,cantidad,idClientes,precio);
 
                 retorno = 0;
             }
@@ -481,6 +509,7 @@ int controller_saveAsTextVentas(char* path, LinkedList* pArrayListVentas)
     int idVentas;
     int codigo;
     int cantidad;
+    float precio;
     int idClientes;
     if(path != NULL && pArrayListVentas != NULL)
     {
@@ -496,7 +525,7 @@ int controller_saveAsTextVentas(char* path, LinkedList* pArrayListVentas)
                     ventas_getCodigoProducto(auxVentas,&codigo);
                     ventas_getCantidadDeProductos(auxVentas, &cantidad);
                     ventas_getIdClientes(auxVentas, &idClientes);
-                    fprintf(pFile,"%d,%d,%d,%d\n",idVentas,codigo,cantidad,idClientes);
+                    fprintf(pFile,"%d,%d,%d,%d,%f\n",idVentas,codigo,cantidad,idClientes,precio);
                 }
             }
             retorno = 0;
